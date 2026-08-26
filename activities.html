@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ค้นหากิจกรรมและค่ายสำหรับเตรียมเข้ามหาวิทยาลัยกับ TCAS Master" />
+    <title>กิจกรรมและค่าย | TCAS Master</title>
+    <link rel="icon" type="image/png" href="tcasmasterlogo.png" />
+    <link rel="preload" as="image" href="tcasmasterlogo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-session.css" />
+    <link rel="stylesheet" href="activities.css" />
+  </head>
+  <body class="activities-page">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html#top" aria-label="TCAS Master หน้าหลัก">
+          <img class="brand-logo" src="tcasmasterlogo.png" alt="TCAS Master" width="160" height="44" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="brand-fallback" style="display:none;align-items:center;gap:8px;">
+            <span class="brand-mark"><span class="mini-penguin">🐧</span></span>
+            <span class="brand-copy"><strong>TCAS MASTER</strong><small>FUTURE PLANNING</small></span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" aria-label="เมนูหลัก">
+          <a class="nav-link" href="index.html#top">⌂ หน้าหลัก</a>
+          <a class="nav-link" href="analyze.html">วิเคราะห์ <span>⌄</span></a>
+          <a class="nav-link" href="mock-exam.html">เตรียมสอบ <span>⌄</span></a>
+          <a class="nav-link active" href="activities.html">กิจกรรม <span>⌄</span></a>
+          <a class="nav-link" href="community.html">ชุมชน <span>⌄</span></a>
+        </nav>
+        <div class="nav-actions">
+          <button class="language-btn" type="button">文 TH</button>
+          <a class="login-btn" href="login.html">♙ เข้าสู่ระบบ</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="activities-main">
+      <div class="activities-shell">
+        <!-- Camphub Integration Hero Banner -->
+        <div class="camphub-hero-banner">
+          <div class="camphub-hero-content">
+            <div class="camphub-sync-badge">
+              <span class="pulse-dot"></span>
+              <strong>CAMPHUB LIVE SYNC</strong>
+              <small>• อัปเดตค่ายและกิจกรรมใหม่ล่าสุด 2569</small>
+            </div>
+            <h1>กิจกรรมและค่ายเตรียมเข้ามหาวิทยาลัย</h1>
+            <p>ค้นหาค่ายวิชาการ เวิร์กช็อป งาน Open House และกิจกรรมจิตอาสาสะสมผลงานใส่ Portfolio ดึงข้อมูลตรงจาก <b>Camphub</b> และมหาวิทยาลัยชั้นนำทั่วประเทศ</p>
+          </div>
+          <div class="camphub-hero-stats">
+            <div class="stat-pill"><span>ค่ายทั้งหมด</span><strong>12+</strong></div>
+            <div class="stat-pill"><span>เปิดรับสมัคร</span><strong style="color:#10b981">9 ค่าย</strong></div>
+            <div class="stat-pill"><span>มีเกียรติบัตร</span><strong style="color:#6366f1">100%</strong></div>
+          </div>
+        </div>
+
+        <!-- Search Bar & Filters -->
+        <div class="search-filter-section">
+          <label class="activity-search">
+            <span aria-hidden="true">⌕</span>
+            <input type="search" data-activity-search placeholder="ค้นหาชื่อค่าย, คณะ, มหาวิทยาลัย (เช่น แพทย์ ศิริราช, วิศวะ จุฬาฯ, นิติ มธ.)..." />
+            <button class="search-clear-btn" type="button" id="clearSearchBtn" hidden>✕</button>
+          </label>
+
+          <!-- Category Scroll Pills -->
+          <div class="category-scroll" role="tablist" aria-label="หมวดหมู่กิจกรรม">
+            <button class="activity-filter active" type="button" data-activity-filter="all">🌟 ทั้งหมด</button>
+            <button class="activity-filter" type="button" data-activity-filter="social">🧠 จิตวิทยา & มนุษยศาสตร์</button>
+            <button class="activity-filter" type="button" data-activity-filter="medical">🩺 แพทย์ & สุขภาพ</button>
+            <button class="activity-filter" type="button" data-activity-filter="engineering">⚙️ วิศวะ & AI</button>
+            <button class="activity-filter" type="button" data-activity-filter="science">🔬 วิทยาศาสตร์ & วิจัย</button>
+            <button class="activity-filter" type="button" data-activity-filter="business">💼 บริหาร & การเงิน</button>
+            <button class="activity-filter" type="button" data-activity-filter="law">⚖️ นิติ & รัฐศาสตร์</button>
+            <button class="activity-filter" type="button" data-activity-filter="design">🎨 สถาปัตย์ & ดีไซน์</button>
+            <button class="activity-filter" type="button" data-activity-filter="communication">🎙️ นิเทศ & สื่อ</button>
+            <button class="activity-filter" type="button" data-activity-filter="volunteer">🤝 จิตอาสา & สังคม</button>
+            <button class="activity-filter" type="button" data-activity-filter="openhouse">🏛️ Open House</button>
+          </div>
+
+          <!-- Sub-filters Bar -->
+          <div class="sub-filter-row">
+            <div class="sub-filter-group">
+              <span class="sub-filter-label">รูปแบบ:</span>
+              <button class="chip-filter active" type="button" data-sub-format="all">ทั้งหมด</button>
+              <button class="chip-filter" type="button" data-sub-format="onsite">🏫 ออนไซต์</button>
+              <button class="chip-filter" type="button" data-sub-format="online">💻 ออนไลน์ / ไฮบริด</button>
+            </div>
+            <div class="sub-filter-group">
+              <span class="sub-filter-label">ค่าใช้จ่าย:</span>
+              <button class="chip-filter active" type="button" data-sub-fee="all">ทั้งหมด</button>
+              <button class="chip-filter" type="button" data-sub-fee="free">🎁 ค่ายฟรี</button>
+            </div>
+            <div class="sub-filter-group">
+              <button class="chip-filter" type="button" data-sub-status="open">🟢 กำลังเปิดรับสมัคร</button>
+            </div>
+            <div class="date-filter-tag" id="activeDateFilterTag" hidden>
+              <span>📅 แสดงค่ายวันที่ <b id="selectedDateText">10 ต.ค.</b></span>
+              <button type="button" id="clearDateFilterBtn">✕ ล้างตัวกรองวันที่</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-layout">
+          <section class="activity-results" aria-labelledby="activity-title">
+            <div class="activity-result-heading">
+              <div>
+                <h2 id="activity-title">รายการกิจกรรมและค่าย</h2>
+                <p data-activity-count>12 รายการ</p>
+              </div>
+              <div class="activity-heading-actions">
+                <span class="activity-penguin">🐧</span>
+                <button class="activity-admin-button" type="button" data-open-activity-admin hidden>＋ เพิ่มกิจกรรม/ค่าย</button>
+              </div>
+            </div>
+            <div class="activity-card-grid" data-activity-list></div>
+            <div class="activity-empty" data-activity-empty hidden>
+              <span>🐧</span>
+              <strong>ไม่พบค่ายหรือกิจกรรมที่ตรงกับเงื่อนไข</strong>
+              <p>ลองปรับคำค้นหา หรือเลือกหมวดหมู่อื่นดูใหม่อีกครั้ง</p>
+            </div>
+          </section>
+
+          <!-- Interactive Calendar Panel -->
+          <aside class="calendar-panel" aria-label="ปฏิทินกิจกรรม">
+            <div class="calendar-head">
+              <h2>▣ ปฏิทินกิจกรรม</h2>
+              <div>
+                <button type="button" data-calendar-prev aria-label="เดือนก่อนหน้า">‹</button>
+                <strong data-calendar-month>กันยายน 2569</strong>
+                <button type="button" data-calendar-next aria-label="เดือนถัดไป">›</button>
+              </div>
+            </div>
+            <div class="calendar-week"><span>อา</span><span>จ</span><span>อ</span><span>พ</span><span>พฤ</span><span>ศ</span><span>ส</span></div>
+            <div class="calendar-days" data-calendar-days></div>
+            <div class="calendar-legend">
+              <span><i class="dot orange"></i>ปิดรับสมัคร</span>
+              <span><i class="dot green"></i>วันจัดค่าย</span>
+            </div>
+            <div class="calendar-hint">
+              <small>💡 คลิกที่วันที่ในปฏิทินเพื่อกรองค่ายที่จัดในวันนั้น</small>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- Camp Detailed Information Modal (TCAS Master Camphub Style) -->
+    <div class="camp-modal-overlay" id="campDetailModal" hidden>
+      <div class="camp-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalCampTitle">
+        <button class="camp-modal-close" type="button" id="closeCampModalBtn" aria-label="ปิด">×</button>
+        
+        <!-- Modal Hero Header with Image Preview -->
+        <div class="camp-modal-hero" id="modalHeroCover">
+          <div class="modal-hero-bg-overlay"></div>
+          <img id="modalPreviewImg" class="modal-preview-img" src="" alt="ภาพพรีวิวค่ายกิจกรรม" />
+          <div class="modal-hero-text-wrap">
+            <div class="camp-modal-badges">
+              <span class="modal-badge-cat" id="modalBadgeCat">🩺 แพทย์ & สุขภาพ</span>
+              <span class="modal-badge-format" id="modalBadgeFormat">🏫 ออนไซต์</span>
+              <span class="modal-badge-status" id="modalBadgeStatus">🟢 เปิดรับสมัคร</span>
+            </div>
+            <h2 id="modalCampTitle">Siriraj Medical Camp ค่ายเปิดประตูสู่แพทย์ศิริราช</h2>
+            <div class="modal-organizer-row">
+              <span class="verified-icon">✓</span>
+              <strong id="modalOrganizerName">คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Content Body -->
+        <div class="camp-modal-body">
+          <!-- Key Meta Bar -->
+          <div class="modal-meta-grid">
+            <div class="modal-meta-item">
+              <span class="meta-icon">📅</span>
+              <div><small>วันจัดกิจกรรม</small><strong id="modalEventDate">10 - 12 ต.ค. 2569</strong></div>
+            </div>
+            <div class="modal-meta-item">
+              <span class="meta-icon">⏰</span>
+              <div><small>ปิดรับสมัคร</small><strong id="modalDeadline">15 ก.ย. 2569</strong></div>
+            </div>
+            <div class="modal-meta-item">
+              <span class="meta-icon">📍</span>
+              <div><small>สถานที่จัด</small><strong id="modalLocation">ศิริราช กรุงเทพฯ</strong></div>
+            </div>
+            <div class="modal-meta-item">
+              <span class="meta-icon">💰</span>
+              <div><small>ค่าใช้จ่าย</small><strong id="modalFee" style="color:#0284c7">ฟรีตลอดค่าย</strong></div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="modal-section">
+            <h3>📌 รายละเอียดกิจกรรม</h3>
+            <p id="modalDescription">...</p>
+          </div>
+
+          <!-- Highlights -->
+          <div class="modal-section">
+            <h3>✨ ไฮไลท์และกิจกรรม Workshop ในค่าย</h3>
+            <ul class="modal-highlights-list" id="modalHighlightsList"></ul>
+          </div>
+
+          <!-- Benefits & Certificate -->
+          <div class="modal-section">
+            <h3>🎁 สิ่งที่ได้รับและเกียรติบัตรสำหรับใส่ Portfolio</h3>
+            <ul class="modal-benefits-list" id="modalBenefitsList"></ul>
+          </div>
+
+          <!-- Qualifications & Eligibility -->
+          <div class="modal-section">
+            <h3>🎓 คุณสมบัติผู้สมัคร</h3>
+            <p class="modal-qual-text" id="modalQualifications">...</p>
+          </div>
+
+          <!-- Contact & Organizer Info -->
+          <div class="modal-section modal-contact-box">
+            <h3>📞 ช่องทางติดต่อและข้อมูลผู้จัด</h3>
+            <div class="contact-links" id="modalContactLinks">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticky Footer CTA -->
+        <footer class="camp-modal-footer">
+          <a class="btn-camphub-view" id="modalCamphubLink" href="https://camphub.in.th" target="_blank" rel="noopener noreferrer">
+            <span>🌐 ดูบนเว็บ Camphub</span>
+          </a>
+          <a class="btn-camp-register" id="modalRegisterLink" href="https://camphub.in.th" target="_blank" rel="noopener noreferrer">
+            <span>📝 สมัครเข้าร่วมกิจกรรมทันที <span>›</span></span>
+          </a>
+        </footer>
+      </div>
+    </div>
+
+    <div class="activity-toast" data-activity-toast role="status" aria-live="polite"></div>
+    <div class="activity-admin-modal" data-activity-admin-modal hidden aria-hidden="true">
+      <div class="activity-admin-card" role="dialog" aria-modal="true" aria-labelledby="activity-admin-title">
+        <button class="activity-admin-close" type="button" data-close-activity-admin aria-label="ปิด">×</button>
+        <p class="activity-admin-eyebrow">ADMIN CONTENT</p>
+        <h2 id="activity-admin-title">เพิ่มกิจกรรมหรือค่าย</h2>
+        <p class="activity-admin-description">ข้อมูลนี้จะแสดงในหน้ากิจกรรมสำหรับผู้ใช้ทุกคน</p>
+        <form data-activity-admin-form>
+          <label>ชื่อกิจกรรม/ค่าย<input name="title" required maxlength="160" placeholder="เช่น ค่ายพัฒนาทักษะดิจิทัล" /></label>
+          <label>รายละเอียด<textarea name="description" rows="4" maxlength="1200" placeholder="รายละเอียดสั้น ๆ ของกิจกรรม"></textarea></label>
+          <div class="activity-admin-grid">
+            <label>หมวดหมู่
+              <select name="category">
+                <option value="medical">แพทย์ & สุขภาพ</option>
+                <option value="engineering">วิศวะ & AI</option>
+                <option value="science">วิทยาศาสตร์ & วิจัย</option>
+                <option value="business">ธุรกิจ & การเงิน</option>
+                <option value="law">นิติ & รัฐศาสตร์</option>
+                <option value="design">ศิลปะ & สถาปัตย์</option>
+                <option value="communication">นิเทศ & สื่อ</option>
+                <option value="volunteer">จิตอาสา & สังคม</option>
+                <option value="openhouse">Open House</option>
+                <option value="general">ทั่วไป</option>
+              </select>
+            </label>
+            <label>วันที่<input name="date" maxlength="40" placeholder="เช่น 15 ก.ย." /></label>
+          </div>
+          <div class="activity-admin-grid">
+            <label>ค่าใช้จ่าย<input name="fee" maxlength="40" value="ฟรี" placeholder="เช่น ฟรี หรือ 500 บาท" /></label>
+            <label>ลิงก์สมัคร (ถ้ามี)<input name="registrationUrl" type="url" placeholder="https://..." /></label>
+          </div>
+          <button class="activity-admin-submit" type="submit">บันทึกกิจกรรม</button>
+          <p class="activity-admin-status" data-activity-admin-status role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+
+    <script src="assets/camphub-activities-data.js"></script>
+    <script src="icons.js"></script>
+    <script src="activities.js"></script>
+    <script type="module" src="activities-permissions.js"></script>
+  </body>
+</html>

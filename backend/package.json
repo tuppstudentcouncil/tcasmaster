@@ -1,0 +1,16 @@
+{
+  "name": "blue-penguin-backend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cloudinary": "^2.10.1",
+    "dotenv": "latest",
+    "express": "latest",
+    "firebase-admin": "^12.7.0",
+    "jose": "^4.15.9",
+    "multer": "^2.2.0"
+  }
+}

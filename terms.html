@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>เงื่อนไขการใช้งาน | TCAS Master</title>
+    <link rel="icon" type="image/png" href="tcasmasterlogo.png" />
+    <link rel="preload" as="image" href="tcasmasterlogo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-session.css" />
+    <style>
+      .legal-page {
+        background: #f4f8ff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .legal-shell {
+        width: min(920px, calc(100% - 36px));
+        margin: 36px auto 60px;
+        flex: 1;
+      }
+      .legal-nav-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      .legal-tab {
+        padding: 10px 20px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 800;
+        text-decoration: none;
+        background: #ffffff;
+        color: #5d718b;
+        border: 1px solid #dce6f2;
+        transition: all 0.2s ease;
+      }
+      .legal-tab:hover {
+        background: #eef6ff;
+        color: var(--blue);
+        border-color: #bcdbfc;
+      }
+      .legal-tab.active {
+        background: var(--blue);
+        color: #ffffff;
+        border-color: var(--blue);
+        box-shadow: 0 4px 14px rgba(20, 114, 232, 0.25);
+      }
+      .legal-card {
+        background: #ffffff;
+        border: 1px solid #dce6f2;
+        border-radius: 24px;
+        padding: 44px 48px;
+        box-shadow: 0 12px 36px rgba(20, 60, 110, 0.06);
+        position: relative;
+        overflow: hidden;
+      }
+      .legal-header {
+        border-bottom: 1.5px solid #edf3fa;
+        padding-bottom: 24px;
+        margin-bottom: 32px;
+      }
+      .legal-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: #eaf5ff;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+        margin-bottom: 14px;
+      }
+      .legal-header h1 {
+        font-size: 28px;
+        color: var(--deep);
+        margin: 0 0 8px;
+        letter-spacing: -0.03em;
+        line-height: 1.25;
+      }
+      .legal-header p {
+        color: #697c94;
+        font-size: 14px;
+        margin: 0;
+      }
+      .legal-section {
+        margin-bottom: 28px;
+        padding-bottom: 24px;
+        border-bottom: 1px dashed #e8eff7;
+      }
+      .legal-section:last-of-type {
+        border-bottom: none;
+        margin-bottom: 16px;
+        padding-bottom: 0;
+      }
+      .legal-section h2 {
+        font-size: 17px;
+        color: var(--deep);
+        margin: 0 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .legal-section h2 span {
+        display: inline-grid;
+        place-items: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 8px;
+        background: #eef6ff;
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 900;
+      }
+      .legal-section p,
+      .legal-section li {
+        color: #47586e;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .legal-section ul {
+        padding-left: 24px;
+        margin: 10px 0 0;
+      }
+      .legal-section li {
+        margin-bottom: 8px;
+      }
+      .legal-section code {
+        background: #eef4fc;
+        padding: 3px 8px;
+        border-radius: 6px;
+        color: var(--blue);
+        font-size: 13px;
+      }
+      .legal-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 36px;
+        padding-top: 24px;
+        border-top: 1.5px solid #edf3fa;
+      }
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 22px;
+        border-radius: 12px;
+        background: var(--blue);
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: 800;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 6px 18px rgba(20, 114, 232, 0.22);
+      }
+      .back-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(20, 114, 232, 0.32);
+      }
+      .privacy-switch-btn {
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .privacy-switch-btn:hover {
+        text-decoration: underline;
+      }
+      @media (max-width: 680px) {
+        .legal-card {
+          padding: 28px 20px;
+          border-radius: 18px;
+        }
+        .legal-header h1 {
+          font-size: 22px;
+        }
+        .legal-actions {
+          flex-direction: column;
+          gap: 14px;
+          align-items: stretch;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body class="legal-page">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html#top" aria-label="TCAS Master หน้าหลัก">
+          <img class="brand-logo" src="tcasmasterlogo.png" alt="TCAS Master" width="160" height="44" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="brand-fallback" style="display:none;align-items:center;gap:8px;">
+            <span class="brand-mark"><span class="mini-penguin">🐧</span></span>
+            <span class="brand-copy"><strong>TCAS MASTER</strong><small>FUTURE PLANNING</small></span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" aria-label="เมนูหลัก">
+          <a class="nav-link" href="index.html#top">⌂ หน้าหลัก</a>
+          <a class="nav-link" href="analyze.html">วิเคราะห์ <span>⌄</span></a>
+          <a class="nav-link" href="mock-exam.html">เตรียมสอบ <span>⌄</span></a>
+          <a class="nav-link" href="activities.html">กิจกรรม <span>⌄</span></a>
+          <a class="nav-link" href="community.html">ชุมชน <span>⌄</span></a>
+        </nav>
+        <div class="nav-actions">
+          <button class="language-btn" type="button">文 TH</button>
+          <a class="login-btn" href="login.html" data-auth-button>♙ เข้าสู่ระบบ</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="legal-shell">
+      <div class="legal-nav-tabs">
+        <a class="legal-tab active" href="terms.html">เงื่อนไขการใช้งาน (Terms)</a>
+        <a class="legal-tab" href="privacy.html">นโยบายความเป็นส่วนตัว (PDPA)</a>
+      </div>
+
+      <article class="legal-card">
+        <div class="legal-header">
+          <span class="legal-badge">🐧 TCAS MASTER · LEGAL POLICY</span>
+          <h1>เงื่อนไขและข้อตกลงการใช้งาน (Terms of Service)</h1>
+          <p>มีผลบังคับใช้ตั้งแต่วันที่ 1 สิงหาคม 2568 (อัปเดตล่าสุดปี 2569)</p>
+        </div>
+
+        <div class="legal-body">
+          <section class="legal-section">
+            <h2><span>1</span> ข้อตกลงทั่วไปและการยอมรับเงื่อนไข</h2>
+            <p>การเข้าถึง ใช้งาน หรือลงทะเบียนบัญชีบนแพลตฟอร์ม <strong>TCAS Master</strong> ถือว่าท่านได้อ่าน ทำความเข้าใจ และยินยอมผูกพันตามข้อกำหนดและเงื่อนไขทั้งหมดที่ระบุไว้ในเอกสารนี้ หากท่านไม่ยินยอมหรือไม่เห็นด้วยกับข้อกำหนดใดข้อกำหนดหนึ่ง โปรดยุติการใช้งานบริการทันที</p>
+          </section>
+
+          <section class="legal-section">
+            <h2><span>2</span> การใช้งานบริการและการอัปโหลดผลงาน (Portfolio &amp; Content)</h2>
+            <ul>
+              <li>ผู้ใช้งานต้องรับผิดชอบต่อความถูกต้อง ความเหมาะสม และความชอบด้วยกฎหมายของเนื้อหา ข้อความ รูปภาพ และไฟล์เอกสาร PDF Portfolio ที่ท่านอัปโหลดสู่ระบบ</li>
+              <li>ห้ามมิให้อัปโหลดเนื้อหาที่ละเมิดลิขสิทธิ์ สิทธิบัตร เครื่องหมายการค้า หรือสิทธิในทรัพย์สินทางปัญญาของบุคคลภายนอก</li>
+              <li>ห้ามเผยแพร่ข้อมูลเท็จ ข้อมูลที่สร้างความเสียหายต่อบุคคลอื่น หรือเนื้อหาที่ขัดต่อกฎหมายและความสงบเรียบร้อย</li>
+              <li>ทีมงานผู้ดูแลระบบสงวนสิทธิ์ในการตรวจสอบ ระงับ หรือลบเนื้อหาที่พบว่าฝ่าฝืนเงื่อนไขได้ทันทีโดยมิต้องแจ้งให้ทราบล่วงหน้า</li>
+            </ul>
+          </section>
+
+          <section class="legal-section">
+            <h2><span>3</span> การคุ้มครองทรัพย์สินทางปัญญา</h2>
+            <p>องค์ประกอบทั้งหมดบนแพลตฟอร์ม TCAS Master รวมถึงแต่ไม่จำกัดเพียง เครื่องหมายการค้า โลโก้ รูปแบบกราฟิก โค้ดโปรแกรม ฐานข้อมูล ชุดข้อสอบจำลอง และเครื่องมือ AI วิเคราะห์ผลงาน ถือเป็นทรัพย์สินทางปัญญาของ TCAS Master ห้ามมิให้ทำซ้ำ ดัดแปลง เผยแพร่ หรือนำไปใช้ในเชิงพาณิชย์โดยไม่ได้รับความยินยอมเป็นลายลักษณ์อักษร</p>
+          </section>
+
+          <section class="legal-section">
+            <h2><span>4</span> การจำกัดความรับผิด</h2>
+            <p>ข้อมูล กำหนดการ TCAS สถิติคะแนน และผลการวิเคราะห์จากระบบ AI จัดทำขึ้นเพื่อเป็นแนวทางและช่วยในการวางแผนการศึกษาเท่านั้น TCAS Master มิได้รับประกันผลการสอบเข้าหรือการคัดเลือกเข้าศึกษาต่อในสถาบันอุดมศึกษาใด ๆ และไม่รับผิดชอบต่อความเสียหายที่อาจเกิดขึ้นจากการนำข้อมูลไปใช้</p>
+          </section>
+
+          <section class="legal-section">
+            <h2><span>5</span> การแก้ไขเปลี่ยนแปลงเงื่อนไข</h2>
+            <p>TCAS Master ขอสงวนสิทธิ์ในการแก้ไข ปรับปรุง หรือเปลี่ยนแปลงข้อกำหนดและเงื่อนไขการใช้งานนี้ตามความเหมาะสม โดยจะประกาศให้ทราบผ่านทางหน้าเว็บไซต์ การที่ท่านยังคงใช้งานแพลตฟอร์มอย่างต่อเนื่องถือว่าท่านยอมรับการเปลี่ยนแปลงดังกล่าว</p>
+          </section>
+
+          <section class="legal-section">
+            <h2><span>6</span> ช่องทางการติดต่อ</h2>
+            <p>หากท่านมีคำถามหรือข้อสงสัยเกี่ยวกับเงื่อนไขการใช้งาน สามารถติดต่อทีมงานได้ที่อีเมล: <code>tupp.studentcouncil@tupp.ac.th</code> หรือ <code>success04813@gmail.com</code></p>
+          </section>
+        </div>
+
+        <div class="legal-actions">
+          <a class="back-btn" href="index.html">← กลับสู่หน้าหลัก</a>
+          <a class="privacy-switch-btn" href="privacy.html">อ่านนโยบายความเป็นส่วนตัว (PDPA) →</a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-bottom section-shell">
+        <span>© 2026 TCAS Master · All Rights Reserved</span>
+      </div>
+    </footer>
+
+    <script src="icons.js"></script>
+    <script type="module" src="firebase-session.js"></script>
+  </body>
+</html>

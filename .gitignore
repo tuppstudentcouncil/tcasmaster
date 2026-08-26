@@ -1,0 +1,26 @@
+# Dependencies and local tooling
+node_modules/
+npm-debug.log*
+.netlify/
+
+# Local environment files and Firebase Admin credentials
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+*service-account*.json
+service-account*.json
+
+# Local editor/OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+blue-penguin-future/
+bro/
+
+# Generated logs and temporary files
+*.log
+local-nav-dropdown.png

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="วิเคราะห์ Portfolio ตรวจคำผิด เช็คเกณฑ์ 10 หน้า TCAS และประเมินความพร้อมด้วย AI กับ TCAS Master" />
+    <title>AI วิเคราะห์ Portfolio | TCAS Master</title>
+    <link rel="icon" type="image/png" href="tcasmasterlogo.png" />
+    <link rel="preload" as="image" href="tcasmasterlogo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-session.css" />
+    <link rel="stylesheet" href="analyze.css" />
+  </head>
+  <body class="analyze-page">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html#top" aria-label="TCAS Master หน้าหลัก">
+          <img class="brand-logo" src="tcasmasterlogo.png" alt="TCAS Master" width="160" height="44" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="brand-fallback" style="display:none;align-items:center;gap:8px;">
+            <span class="brand-mark"><span class="mini-penguin">🐧</span></span>
+            <span class="brand-copy"><strong>TCAS MASTER</strong><small>FUTURE PLANNING</small></span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false"><span></span><span></span><span></span></button>
+        <nav class="main-nav" aria-label="เมนูหลัก">
+          <a class="nav-link" href="index.html#top">⌂ หน้าหลัก</a>
+          <a class="nav-link active" href="analyze.html">วิเคราะห์ <span>⌄</span></a>
+          <a class="nav-link" href="mock-exam.html">เตรียมสอบ <span>⌄</span></a>
+          <a class="nav-link" href="activities.html">กิจกรรม <span>⌄</span></a>
+          <a class="nav-link" href="community.html">ชุมชน <span>⌄</span></a>
+        </nav>
+        <div class="nav-actions">
+          <button class="language-btn" type="button">文 TH</button>
+          <a class="login-btn" href="login.html">♙ เข้าสู่ระบบ</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="analyze-main">
+      <div class="analyze-shell">
+        <a class="back-link" href="index.html#toolbox">← กลับสู่หน้าหลัก</a>
+
+        <section class="analyze-intro" aria-labelledby="analyze-title">
+          <div class="analyze-title-row">
+            <span class="analyze-icon" aria-hidden="true">✦</span>
+            <div>
+              <h1 id="analyze-title">AI วิเคราะห์ Portfolio</h1>
+              <p class="analyze-subtitle">สแกนตรวจคำผิด เช็คโครงสร้าง 10 หน้าตามเกณฑ์ TCAS และประเมินโอกาสติดรอบ 1</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Form Card for Configuration & Upload -->
+        <section class="analyze-config-card" id="analyzeInputSection">
+          <!-- Step 1: Select Target Faculty -->
+          <div class="config-group">
+            <label class="config-label" for="targetFaculty">
+              <span class="step-badge">1</span>
+              <strong>เลือกคณะ / กลุ่มสาขาที่ต้องการยื่น</strong>
+            </label>
+            <select id="targetFaculty" class="config-select">
+              <option value="engineering_tech">⚙️ วิศวกรรมศาสตร์ / เทคโนโลยี / คอมพิวเตอร์ / Data</option>
+              <option value="medical_health">🩺 แพทยศาสตร์ / พยาบาล / ทันตะ / เภสัช / สหเวชฯ</option>
+              <option value="business_econ">💼 บริหารธุรกิจ / บัญชี / การตลาด / เศรษฐศาสตร์</option>
+              <option value="architecture_design">🎨 สถาปัตยกรรม / ศิลปกรรม / ออกแบบ / มีเดีย</option>
+              <option value="humanities_law_social">⚖️ นิติศาสตร์ / รัฐศาสตร์ / นิเทศ / มนุษยศาสตร์</option>
+              <option value="general">📚 ทั่วไป / ทุกสาขาวิชา (เกณฑ์มาตรฐาน TCAS)</option>
+            </select>
+          </div>
+
+          <!-- Step 2: Upload File or Try Demo -->
+          <div class="config-group">
+            <label class="config-label">
+              <span class="step-badge">2</span>
+              <strong>อัปโหลดไฟล์ Portfolio (PDF หรือ รูปภาพ)</strong>
+            </label>
+
+            <input id="portfolio-file" class="sr-only" type="file" accept=".pdf,image/*" />
+            <div class="drop-zone" id="dropZone" role="button" tabindex="0">
+              <div class="drop-zone-icon">📄</div>
+              <strong class="drop-zone-title">คลิกเพื่อเลือกไฟล์ หรือลากไฟล์มาวางที่นี่</strong>
+              <small class="drop-zone-subtitle">รองรับไฟล์ PDF (แนะนำ) หรือรูปภาพ ขนาดไม่เกิน 25 MB</small>
+              <button class="btn btn-demo" type="button" id="loadDemoBtn">✨ หรือคลิกเพื่อทดลองวิเคราะห์ Portfolio ตัวอย่าง</button>
+            </div>
+            <p class="upload-error" id="uploadError" role="alert" hidden></p>
+          </div>
+
+          <!-- Selected File Preview -->
+          <div class="selected-file-card" id="selectedFileCard" hidden>
+            <div class="file-icon-box" id="fileTypeBadge">PDF</div>
+            <div class="file-info">
+              <strong id="fileName">ชื่อไฟล์.pdf</strong>
+              <span id="fileMeta">0 หน้า • 0 MB</span>
+            </div>
+            <button type="button" class="remove-file-btn" id="removeFileBtn" aria-label="ลบไฟล์ที่เลือก">✕</button>
+          </div>
+
+          <!-- Start Analysis Button -->
+          <button class="btn btn-primary analyze-submit-btn" type="button" id="startAnalyzeBtn" disabled>
+            <span>🚀 เริ่มสแกนและวิเคราะห์ Portfolio</span>
+          </button>
+        </section>
+
+        <!-- Scanning & Loading State -->
+        <section class="analysis-loading-card" id="loadingCard" hidden>
+          <div class="loading-spinner"></div>
+          <h2 class="loading-title" id="loadingStepTitle">กำลังอ่านข้อความจากเอกสาร...</h2>
+          <p class="loading-desc" id="loadingStepDesc">ระบบกำลังแยกเนื้อหาและโครงสร้างหน้า</p>
+          <div class="progress-track">
+            <div class="progress-bar" id="progressBar" style="width: 15%;"></div>
+          </div>
+        </section>
+
+        <!-- Complete Analysis Results Section -->
+        <section class="analysis-results-section" id="resultsSection" hidden>
+          <div class="result-header-row">
+            <div>
+              <span class="result-badge">TCAS ANALYSIS REPORT</span>
+              <h2 class="result-title">ผลการวิเคราะห์ความพร้อม Portfolio</h2>
+            </div>
+            <button class="btn-outline-small" type="button" id="reAnalyzeBtn">🔄 วิเคราะห์ไฟล์ใหม่</button>
+          </div>
+
+          <!-- Document Intelligence Summary Card (Real Extracted Data) -->
+          <div class="doc-intelligence-card" id="docIntelligenceCard">
+            <div class="doc-meta-item">
+              <span class="doc-meta-label">👤 เจ้าของผลงาน</span>
+              <strong class="doc-meta-val" id="docStudentName">-</strong>
+            </div>
+            <div class="doc-meta-item">
+              <span class="doc-meta-label">🏫 โรงเรียน</span>
+              <strong class="doc-meta-val" id="docSchoolName">-</strong>
+            </div>
+            <div class="doc-meta-item">
+              <span class="doc-meta-label">🎓 GPAX ที่ตรวจพบ</span>
+              <strong class="doc-meta-val text-blue" id="docGpax">-</strong>
+            </div>
+            <div class="doc-meta-item">
+              <span class="doc-meta-label">📑 สถิติเอกสาร</span>
+              <strong class="doc-meta-val" id="docStats">0 หน้า • 0 คำ</strong>
+            </div>
+            <div class="doc-meta-item">
+              <span class="doc-meta-label">🏛️ คณะเป้าหมาย</span>
+              <strong class="doc-meta-val" id="docTargetFaculty">ทั่วไป</strong>
+            </div>
+          </div>
+
+          <!-- Overall Score Card -->
+          <div class="result-overview-grid">
+            <div class="score-card">
+              <div class="score-circle-wrap">
+                <div class="score-circle" id="scoreCircle">
+                  <span class="score-number" id="overallScore">85</span>
+                  <span class="score-max">/ 100</span>
+                </div>
+              </div>
+              <div class="score-grade-badge" id="scoreGrade">ระดับ A (ความพร้อมสูง)</div>
+              <p class="score-verdict" id="scoreVerdict">แฟ้มสะสมผลงานมีความโดดเด่น โครงสร้างครบถ้วน และตรงกับเกณฑ์รับเข้าของคณะ</p>
+            </div>
+
+            <!-- 4 Rubric Metric Progress Bars -->
+            <div class="metrics-card">
+              <h3 class="metrics-title">📊 สรุปคะแนนตาม 4 มิติสำคัญ</h3>
+
+              <div class="metric-row">
+                <div class="metric-info">
+                  <span>✍️ การสะกดคำและความถูกต้องของภาษา</span>
+                  <strong id="metricSpelling">88%</strong>
+                </div>
+                <div class="metric-bar-track"><div class="metric-bar" id="barSpelling" style="width:88%"></div></div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-info">
+                  <span>📐 โครงสร้างและความครบถ้วนตามเกณฑ์ TCAS (10 หน้า)</span>
+                  <strong id="metricStructure">90%</strong>
+                </div>
+                <div class="metric-bar-track"><div class="metric-bar" id="barStructure" style="width:90%"></div></div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-info">
+                  <span>🎯 ความตรงสายและทักษะที่เกี่ยวข้องกับคณะ</span>
+                  <strong id="metricAlignment">85%</strong>
+                </div>
+                <div class="metric-bar-track"><div class="metric-bar" id="barAlignment" style="width:85%"></div></div>
+              </div>
+
+              <div class="metric-row">
+                <div class="metric-info">
+                  <span>📑 การจัดสัดส่วนเนื้อหาและการนำเสนอ</span>
+                  <strong id="metricPresentation">82%</strong>
+                </div>
+                <div class="metric-bar-track"><div class="metric-bar" id="barPresentation" style="width:82%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Report Tabs -->
+          <div class="report-tabs-card">
+            <div class="report-tab-nav" role="tablist">
+              <button class="tab-nav-btn active" type="button" data-tab="typos">
+                ✍️ ตรวจพบคำผิด (<span id="typoCountBadge">0</span>)
+              </button>
+              <button class="tab-nav-btn" type="button" data-tab="structure">
+                📋 เช็คเกณฑ์ 10 หน้า TCAS
+              </button>
+              <button class="tab-nav-btn" type="button" data-tab="skills">
+                🎯 ทักษะ & Keyword ตรงสาย
+              </button>
+              <button class="tab-nav-btn" type="button" data-tab="interview">
+                🎙️ เก็งคำถามสัมภาษณ์ (AI Simulator)
+              </button>
+              <button class="tab-nav-btn" type="button" data-tab="tips">
+                💡 คำแนะนำจากรุ่นพี่ TCAS
+              </button>
+            </div>
+
+            <!-- Tab 1: Typos Inspector -->
+            <div class="tab-panel active" id="tabTypos">
+              <div id="typosListContainer"></div>
+            </div>
+
+            <!-- Tab 2: TCAS 10-Page Structure Checklist -->
+            <div class="tab-panel" id="tabStructure" hidden>
+              <div class="structure-summary-banner" id="structureBanner">
+                <strong>ตรวจเช็คโครงสร้าง 5 หมวดหลักตามเกณฑ์ TCAS</strong>
+                <p>จำนวนหน้าที่แนะนำ: ไม่เกิน 10 หน้ากระดาษ A4 (ไม่รวมหน้าปก/คำนำ/สารบัญ หรือขึ้นอยู่กับประกาศของคณะ)</p>
+              </div>
+              <div class="structure-checklist-grid" id="structureChecklistGrid"></div>
+            </div>
+
+            <!-- Tab 3: Skills & Keyword Match -->
+            <div class="tab-panel" id="tabSkills" hidden>
+              <div class="skills-section-box">
+                <h4 style="margin:0 0 10px; font-size:15px; color:#0f172a;">✨ ทักษะและคำสำคัญที่ตรวจพบในพอร์ตของคุณ</h4>
+                <div class="skills-pills-wrap" id="detectedSkillsPills"></div>
+
+                <h4 style="margin:24px 0 10px; font-size:15px; color:#0f172a;">🚀 ทักษะสำคัญที่แนะนำให้เพิ่มเติมสำหรับคณะนี้</h4>
+                <div class="skills-pills-wrap" id="recommendedSkillsPills"></div>
+              </div>
+            </div>
+
+            <!-- Tab 4: Interview Simulation Questions -->
+            <div class="tab-panel" id="tabInterview" hidden>
+              <div class="interview-header-banner">
+                <strong>🎙️ คำถามสัมภาษณ์จำลองที่เก็งจากผลงานจริงใน Portfolio ของคุณ</strong>
+                <p>อาจารย์และคณะกรรมการมักจะถามเจาะลึกใน 4 ประเด็นนี้จากเนื้อหาที่พบในพอร์ต</p>
+              </div>
+              <div class="interview-questions-list" id="interviewQuestionsList"></div>
+            </div>
+
+            <!-- Tab 5: Actionable Tips from Mentors -->
+            <div class="tab-panel" id="tabTips" hidden>
+              <div class="tips-container" id="tipsContainer"></div>
+            </div>
+          </div>
+
+          <!-- Action Buttons Bottom -->
+          <div class="report-actions-bottom">
+            <button class="btn btn-secondary" type="button" id="printReportBtn">🖨️ พิมพ์ / บันทึกรายงานนี้</button>
+            <a class="btn btn-primary" href="community.html">📂 ไปดู Portfolio รุ่นพี่ในชุมชน →</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer analyze-footer">
+      <div class="footer-bottom section-shell">
+        <span>© 2026 TCAS Master</span>
+        <span>ระบบวิเคราะห์ Portfolio เพื่อโอกาสทางการศึกษา ✦</span>
+      </div>
+    </footer>
+
+    <!-- PDF.js library for fast client-side PDF text extraction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="icons.js"></script>
+    <script src="analyze.js"></script>
+  </body>
+</html>

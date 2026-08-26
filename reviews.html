@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>รีวิวค่ายและการแข่งขัน | TCAS Master</title>
+    <link rel="icon" type="image/png" href="tcasmasterlogo.png" />
+    <link rel="preload" as="image" href="tcasmasterlogo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-session.css" />
+    <link rel="stylesheet" href="reviews.css" />
+  </head>
+  <body class="reviews-page">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html#top" aria-label="TCAS Master หน้าหลัก">
+          <img class="brand-logo" src="tcasmasterlogo.png" alt="TCAS Master" width="160" height="44" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="brand-fallback" style="display:none;align-items:center;gap:8px;">
+            <span class="brand-mark"><span class="mini-penguin">🐧</span></span>
+            <span class="brand-copy"><strong>TCAS MASTER</strong><small>FUTURE PLANNING</small></span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html#top">⌂ หน้าหลัก</a>
+          <a class="nav-link" href="analyze.html">วิเคราะห์ <span>⌄</span></a>
+          <a class="nav-link" href="mock-exam.html">เตรียมสอบ <span>⌄</span></a>
+          <a class="nav-link" href="activities.html">กิจกรรม <span>⌄</span></a>
+          <a class="nav-link active" href="reviews.html">ชุมชน <span>⌄</span></a>
+        </nav>
+        <div class="nav-actions">
+          <button class="language-btn" type="button">文 TH</button>
+          <a class="login-btn" href="login.html">♙ เข้าสู่ระบบ</a>
+        </div>
+        <a class="admin-access-link" href="admin.html" aria-label="เข้าสู่ระบบแอดมิน">⚙</a>
+      </div>
+    </header>
+
+    <main class="reviews-main">
+      <section class="reviews-hero">
+        <div class="reviews-shell">
+          <span class="reviews-badge">♕ &nbsp; Review Zone</span>
+          <div class="reviews-title-row">
+            <div>
+              <h1>รีวิวค่ายและการแข่งขัน</h1>
+              <p>รวมประสบการณ์จากรุ่นพี่ พร้อมภาพที่ร่วมลงแข่ง รูปบรรยากาศ และลิงก์หน้างาน</p>
+            </div>
+            <button class="new-review-button" type="button" data-open-review hidden style="display:none;">＋ &nbsp; เขียนรีวิวใหม่</button>
+          </div>
+          <label class="reviews-search">
+            <span>⌕</span>
+            <input type="search" data-review-search placeholder="ค้นหาค่าย, ชื่อกิจกรรม, ผู้จัด..." />
+          </label>
+        </div>
+      </section>
+
+      <section class="reviews-list-section">
+        <div class="reviews-shell">
+          <div class="review-count" data-review-count>กำลังโหลดรีวิว...</div>
+          <div class="story-grid" data-review-list></div>
+          <div class="review-empty-state" data-review-empty hidden>
+            <div class="empty-icon">📝</div>
+            <h3>ยังไม่มีรีวิวในระบบ</h3>
+            <p>ร่วมแบ่งปันประสบการณ์การแข่งขัน ค่าย หรือกิจกรรมของคุณเป็นคนแรก</p>
+          </div>
+        </div>
+      </section>
+          <div class="review-empty" data-review-empty hidden>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <strong>ยังไม่พบรีวิวที่ตรงกับคำค้นหา</strong>
+            <p>ลองค้นหาด้วยคำอื่นอีกครั้ง</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="review-modal" data-review-modal aria-hidden="true">
+      <div class="review-modal-card" role="dialog" aria-modal="true" aria-labelledby="review-modal-title">
+        <button class="review-modal-close" type="button" data-close-review aria-label="ปิด">×</button>
+        <span class="reviews-badge">Review Zone</span>
+        <h2 id="review-modal-title" data-modal-title>เขียนรีวิวงานแข่ง / ค่าย</h2>
+        <p data-modal-desc>แบ่งปันประสบการณ์ เทคนิค และรูปภาพบรรยากาศการแข่งขันให้เพื่อน ๆ ในชุมชน</p>
+        <form data-review-form>
+          <input type="hidden" name="reviewId" id="reviewIdInput" value="" />
+          <div class="review-form-group">
+            <label class="review-form-label">ชื่องานแข่ง / กิจกรรม <span class="required">*</span></label>
+            <input name="title" id="reviewTitleInput" required placeholder="เช่น World Robot Contest / ค่ายวิศวะ / แข่งขันพัฒนาซอฟต์แวร์" />
+          </div>
+
+          <div class="review-form-row">
+            <div class="review-form-group">
+              <label class="review-form-label">ประเภทกิจกรรม</label>
+              <select name="category" id="reviewCategoryInput">
+                <option value="การแข่งขัน">การแข่งขัน (Competition)</option>
+                <option value="ค่ายวิชาการ">ค่ายวิชาการ (Academic Camp)</option>
+                <option value="โครงงาน/นวัตกรรม">โครงงาน / นวัตกรรม (Project)</option>
+                <option value="โอลิมปิกวิชาการ">โอลิมปิกวิชาการ (Olympiad)</option>
+                <option value="เวิร์กช็อป">เวิร์กช็อป (Workshop)</option>
+              </select>
+            </div>
+            <div class="review-form-group">
+              <label class="review-form-label">รางวัลที่ได้รับ (ถ้ามี)</label>
+              <input name="award" id="reviewAwardInput" placeholder="เช่น รางวัลชนะเลิศอันดับ 1 / เหรียญทอง" />
+            </div>
+          </div>
+
+          <div class="review-form-row">
+            <div class="review-form-group">
+              <label class="review-form-label">ผู้จัดงาน / หน่วยงานที่จัด</label>
+              <input name="organizer" id="reviewOrganizerInput" placeholder="เช่น สวทช. / มหาวิทยาลัยเกษตรศาสตร์ / สพฐ." />
+            </div>
+            <div class="review-form-group">
+              <label class="review-form-label">ชื่อผู้เขียน / รุ่น / โรงเรียน <span class="required">*</span></label>
+              <input name="author" id="reviewAuthorInput" required placeholder="เช่น พี่ภูมิ เตรียมพัฒน์ / รุ่น 10" />
+            </div>
+          </div>
+
+          <div class="review-form-group">
+            <label class="review-form-label">เรื่องเล่าประสบการณ์ & เทคนิคการแข่ง <span class="required">*</span></label>
+            <textarea name="description" id="reviewDescriptionInput" required rows="4" placeholder="เล่าถึงบรรยากาศงาน การเตรียมตัว ปัญหาที่เจอ และคำแนะนำสำหรับน้อง ๆ ที่อยากลงแข่ง..."></textarea>
+          </div>
+
+          <!-- Photo Upload (Up to 8 photos) -->
+          <div class="review-form-group">
+            <div class="review-photo-header">
+              <label class="review-form-label">รูปภาพบรรยากาศงานแข่ง / เกียรติบัตร</label>
+              <span class="review-photo-count" id="reviewPhotoCounter">0 / 8 รูป</span>
+            </div>
+            <input type="file" id="reviewPhotosInput" accept="image/*" multiple hidden />
+            <label for="reviewPhotosInput" class="review-upload-dropzone" id="reviewDropzone">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <strong>คลิกเพื่อเลือกรูปภาพ หรือลากไฟล์มาวางที่นี่</strong>
+              <small>รองรับไฟล์ JPG, PNG, WebP (สูงสุด 8 รูป)</small>
+            </label>
+            <div class="review-photos-grid" id="reviewPhotosGrid"></div>
+          </div>
+
+          <button class="btn btn-primary review-submit-btn" type="submit" data-submit-btn>เผยแพร่รีวิว</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Review Detail & Photo Gallery Modal -->
+    <div class="review-detail-modal" data-review-detail-modal aria-hidden="true">
+      <div class="review-detail-card" role="dialog" aria-modal="true" aria-labelledby="review-detail-title">
+        <button class="review-detail-close" type="button" data-close-review-detail aria-label="ปิด">×</button>
+        <div class="review-detail-header">
+          <div class="review-detail-tags">
+            <span class="review-detail-category" data-detail-category>การแข่งขัน</span>
+            <span class="review-detail-award" data-detail-award hidden></span>
+          </div>
+          <h2 id="review-detail-title" data-detail-title>ชื่องานแข่ง</h2>
+          <div class="review-detail-meta">
+            <span class="review-detail-organizer" data-detail-organizer hidden>🏛️ ผู้จัด: -</span>
+            <span class="review-detail-author" data-detail-author>ผู้เขียน</span>
+            <span class="review-detail-date" data-detail-date></span>
+            <div class="review-detail-admin-actions" data-detail-admin-actions hidden>
+              <button class="admin-action-btn edit-btn" type="button" data-edit-review-btn>✏️ แก้ไข</button>
+              <button class="admin-action-btn delete-btn" type="button" data-delete-review-btn>🗑️ ลบ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-detail-body">
+          <div class="review-detail-story" data-detail-description></div>
+
+          <!-- Photo Gallery -->
+          <div class="review-detail-gallery-section" data-detail-gallery-sec hidden>
+            <h3>รูปภาพกิจกรรม / บรรยากาศงานแข่ง (<span data-detail-photo-count>0</span> รูป)</h3>
+            <div class="review-detail-gallery-grid" data-detail-gallery-grid></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Lightbox Viewer -->
+    <div class="review-lightbox" id="reviewLightbox" aria-hidden="true">
+      <button class="review-lightbox-close" type="button" id="reviewLightboxClose" aria-label="ปิด">×</button>
+      <button class="review-lightbox-nav prev" type="button" id="reviewLightboxPrev" aria-label="ก่อนหน้า">‹</button>
+      <img class="review-lightbox-img" id="reviewLightboxImg" src="" alt="ภาพขยาย" />
+      <button class="review-lightbox-nav next" type="button" id="reviewLightboxNext" aria-label="ถัดไป">›</button>
+      <div class="review-lightbox-counter" id="reviewLightboxCounter">1 / 1</div>
+    </div>
+
+    <div class="reviews-toast" data-review-toast role="status" aria-live="polite"></div>
+
+    <script src="icons.js"></script>
+    <script type="module" src="reviews.js"></script>
+  </body>
+</html>

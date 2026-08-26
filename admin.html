@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>จัดการระบบ | TCAS Master</title>
+    <link rel="icon" type="image/png" href="tcasmasterlogo.png" />
+    <link rel="preload" as="image" href="tcasmasterlogo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-session.css" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body class="admin-page">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html#top" aria-label="TCAS Master หน้าหลัก">
+          <img class="brand-logo" src="tcasmasterlogo.png" alt="TCAS Master" width="160" height="44" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="brand-fallback" style="display:none;align-items:center;gap:8px;">
+            <span class="brand-mark"><span class="mini-penguin">🐧</span></span>
+            <span class="brand-copy"><strong>TCAS MASTER</strong><small>FUTURE PLANNING</small></span>
+          </div>
+        </a>
+        <nav class="main-nav" aria-label="เมนูหลัก">
+          <a class="nav-link" href="index.html#top">หน้าหลัก</a>
+          <a class="nav-link" href="analyze.html">วิเคราะห์</a>
+          <a class="nav-link" href="mock-exam.html">เตรียมสอบ</a>
+          <a class="nav-link" href="community.html">ชุมชน</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="language-btn" type="button">文 TH</button>
+          <a class="login-btn" href="login.html">เข้าสู่ระบบ</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section class="admin-hero">
+        <p class="admin-eyebrow">ADMIN CONSOLE</p>
+        <h1>จัดการ Portfolio</h1>
+        <p>อัปโหลดและลบข้อมูลที่แสดงในชุมชนได้จากหน้านี้ เฉพาะบัญชีที่ได้รับสิทธิ์ Admin เท่านั้น</p>
+      </section>
+
+      <section class="admin-guard" data-admin-guard role="status">กำลังตรวจสอบสิทธิ์บัญชี...</section>
+
+      <section class="admin-panel" data-admin-panel hidden>
+        <div class="admin-account">
+          <div class="admin-account-avatar" data-admin-avatar aria-hidden="true">A</div>
+          <div>
+            <strong data-admin-name>Admin</strong>
+            <span data-admin-email></span>
+          </div>
+          <span class="admin-badge">ADMIN</span>
+        </div>
+
+        <form class="admin-card admin-form admin-upload-layout" data-portfolio-form>
+          <input name="portfolioId" type="hidden" />
+          <div class="admin-upload-fields">
+            <div class="admin-card-heading">
+              <div>
+                <p class="admin-eyebrow">PORTFOLIO</p>
+                <h2>อัปโหลด Portfolio</h2>
+                <p class="admin-card-subtitle">อัปโหลดไฟล์ PDF (หน้าแรกจะถูกใช้เป็นภาพปกอัตโนมัติ) และกรอกข้อมูลผลงาน</p>
+              </div>
+            </div>
+
+            <label>
+              ชื่อเจ้าของผลงาน
+              <input name="ownerName" type="text" maxlength="120" required placeholder="เช่น นายร่มธรรม แท่นแก้ว หรือ POPSUK KLINMONTHA" />
+            </label>
+
+            <div class="admin-form-grid">
+              <label>
+                มหาวิทยาลัย
+                <input name="university" type="text" maxlength="120" required placeholder="เช่น จุฬาลงกรณ์มหาวิทยาลัย" />
+              </label>
+              <label>
+                คณะ
+                <input name="faculty" type="text" maxlength="120" required placeholder="เช่น คณะวิศวกรรมศาสตร์" />
+              </label>
+              <label>
+                สาขาวิชา
+                <input name="major" type="text" maxlength="120" placeholder="เช่น วิศวกรรมทั่วไป" />
+              </label>
+              <label>
+                รุ่น
+                <input name="generation" type="text" maxlength="80" placeholder="เช่น รุ่น 10" />
+              </label>
+            </div>
+
+            <div class="admin-form-grid">
+              <label>
+                แผนการเรียน / โรงเรียน
+                <input name="studyPlan" type="text" maxlength="180" placeholder="เช่น ห้องเรียนพิเศษวิทยาศาสตร์ และคณิตศาสตร์ (Gifted)" />
+              </label>
+              <label>
+                ช่องทางติดต่อ
+                <input name="contact" type="text" maxlength="120" placeholder="เช่น ig:Romthum_rom หรือ Line ID" />
+              </label>
+            </div>
+
+            <label>
+              คำแนะนำ / ข้อคิด
+              <textarea name="description" rows="3" maxlength="1000" placeholder="เช่น 3 ปีในช่วง ม ปลายสำคัญ ถ้าอยากเข้าวิศวกรรมพี่แนะนำให้เก็บผลงานทำพอร์ต ตั้งแต่ ม5..."></textarea>
+            </label>
+
+            <label class="admin-file-drop">
+              <span class="admin-field-label">อัปโหลดไฟล์ Portfolio PDF</span>
+              <input name="file" type="file" accept="application/pdf,.pdf" required data-portfolio-pdf />
+              <span class="admin-file-drop-copy"><strong>เลือกไฟล์ PDF</strong><small>ระบบจะใช้หน้าแรกของเอกสารเป็นภาพปกอัตโนมัติ (ขนาดไม่เกิน 10 MB)</small></span>
+            </label>
+
+            <div class="admin-form-actions">
+              <button class="admin-primary-button" type="submit" data-submit-portfolio>เผยแพร่ Portfolio</button>
+              <button class="admin-secondary-button" type="button" data-cancel-edit hidden>ยกเลิกแก้ไข</button>
+            </div>
+            <p class="admin-status" data-admin-status role="status" aria-live="polite"></p>
+          </div>
+
+          <aside class="admin-preview-panel" aria-label="ตัวอย่าง Portfolio">
+            <div class="admin-preview-heading"><strong>ตัวอย่างหน้าพอร์ต</strong></div>
+            <div class="admin-preview-empty" data-portfolio-preview-empty>
+              <strong>ยังไม่มีตัวอย่าง</strong><small>เลือกไฟล์ PDF และกรอกข้อมูลเจ้าของผลงานเพื่อดูตัวอย่าง</small>
+            </div>
+            <article class="admin-preview-card" data-portfolio-preview hidden>
+              <div class="admin-preview-cover" data-preview-cover><span>PORTFOLIO</span></div>
+              <div class="admin-preview-copy"><h3 data-preview-title>Portfolio ของเจ้าของผลงาน</h3><strong data-preview-meta>มหาวิทยาลัย · คณะ</strong><p data-preview-description>รายละเอียดพอร์ตจะแสดงตรงนี้</p><small data-preview-owner>เจ้าของพอร์ต</small></div>
+            </article>
+          </aside>
+        </form>
+
+        <section class="admin-card" id="portfolio-list">
+          <div class="admin-card-heading">
+            <div>
+              <p class="admin-eyebrow">CONTENT</p>
+              <h2>Portfolio ในระบบ</h2>
+              <p class="admin-card-subtitle">จัดการและจัดเรียงลำดับผลงาน Portfolio ที่แสดงบนหน้าแรกและหน้าชุมชน (กด ▲ หรือ ▼ เพื่อเปลี่ยนลำดับ)</p>
+            </div>
+            <div class="admin-card-actions">
+              <button class="admin-danger-button" type="button" data-toggle-delete-mode>ลบผลงาน</button>
+              <button class="admin-danger-button" type="button" data-delete-selected hidden>ยืนยันการลบ (0)</button>
+              <button class="admin-secondary-button" type="button" data-cancel-delete hidden>ยกเลิก</button>
+            </div>
+          </div>
+          <div class="admin-portfolio-list" data-portfolio-list></div>
+          <p class="admin-empty" data-portfolio-empty hidden>ยังไม่มีผลงาน Portfolio ในระบบ</p>
+        </section>
+
+        <section class="admin-card" id="reviews-list">
+          <div class="admin-card-heading">
+            <div>
+              <p class="admin-eyebrow">CONTENT</p>
+              <h2>รีวิวการแข่งขันและค่าย</h2>
+              <p class="admin-card-subtitle">จัดการและจัดเรียงลำดับรีวิวที่แสดงบนหน้าแรกและหน้ารีวิว (กด ▲ หรือ ▼ เพื่อเปลี่ยนลำดับ)</p>
+            </div>
+            <div class="admin-card-actions">
+              <a class="admin-primary-button" href="reviews.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:6px;">＋ เขียนรีวิวใหม่</a>
+            </div>
+          </div>
+          <div class="admin-portfolio-list" data-admin-review-list></div>
+          <p class="admin-empty" data-admin-review-empty hidden>ยังไม่มีรีวิวการแข่งขันในระบบ</p>
+        </section>
+      </section>
+
+      <!-- Modern PDF Viewer Modal (Admin) -->
+      <div class="pdf-modal-backdrop" data-admin-pdf-modal aria-hidden="true">
+        <div class="pdf-modal-shell" role="dialog" aria-modal="true" aria-label="เอกสาร Portfolio">
+          <header class="pdf-modal-header">
+            <div class="pdf-modal-info">
+              <h3 class="pdf-modal-title" data-admin-pdf-title>Portfolio</h3>
+              <div class="pdf-modal-meta">
+                <span class="pdf-modal-tag" data-admin-pdf-uni>มหาวิทยาลัย</span>
+                <span class="pdf-modal-tag" data-admin-pdf-faculty>คณะ</span>
+                <span class="pdf-modal-tag" data-admin-pdf-major>สาขาวิชา</span>
+                <span class="pdf-modal-tag" data-admin-pdf-school>โรงเรียน</span>
+                <span class="pdf-modal-owner" data-admin-pdf-owner>เจ้าของ: -</span>
+              </div>
+            </div>
+
+            <div class="pdf-modal-toolbar">
+              <button class="pdf-tool-btn" type="button" data-admin-pdf-thumb-toggle title="เปิด/ปิดแถบตัวอย่างหน้า (Thumbnails)">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+                <b>แถบหน้า</b>
+              </button>
+
+              <div class="pdf-tool-group">
+                <button class="pdf-tool-btn pdf-btn-icon" type="button" data-admin-pdf-prev title="หน้าก่อนหน้า (←)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <div class="pdf-page-indicator">
+                  <input class="pdf-page-input" type="number" data-admin-pdf-page-input min="1" value="1" aria-label="เลขหน้า">
+                  <span>/</span>
+                  <span data-admin-pdf-page-count>1</span>
+                </div>
+                <button class="pdf-tool-btn pdf-btn-icon" type="button" data-admin-pdf-next title="หน้าถัดไป (→)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+
+              <div class="pdf-tool-group">
+                <button class="pdf-tool-btn pdf-btn-icon" type="button" data-admin-pdf-zoom-out title="ซูมออก (-)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+                </button>
+                <span class="pdf-zoom-label" data-admin-pdf-zoom-label>115%</span>
+                <button class="pdf-tool-btn pdf-btn-icon" type="button" data-admin-pdf-zoom-in title="ซูมเข้า (+)">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+                <button class="pdf-tool-btn pdf-btn-icon" type="button" data-admin-pdf-rotate title="หมุนหน้าเอกสาร 90°">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.83 6.72 2.24L21 8"/><path d="M21 3v5h-5"/></svg>
+                </button>
+                <button class="pdf-tool-btn" type="button" data-admin-pdf-scroll-mode title="สลับโหมดเปิดทีละหน้า / เลื่อนอ่านต่อเนื่อง">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 7l-5-5-5 5M17 17l-5 5-5-5"/></svg>
+                  <b>โหมดเลื่อน</b>
+                </button>
+              </div>
+
+              <div class="pdf-tool-group">
+                <button class="pdf-tool-btn" type="button" data-admin-pdf-details-toggle title="เปิด/ปิดข้อมูลผลงานและคำแนะนำ">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                  <b>ข้อมูลผลงาน</b>
+                </button>
+                <button class="pdf-tool-btn pdf-btn-icon" type="button" data-admin-pdf-fullscreen title="เปิดเต็มจอ">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+                </button>
+                <button class="pdf-tool-btn pdf-tool-download" type="button" data-admin-pdf-download title="ดาวน์โหลดไฟล์ PDF ต้นฉบับ">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                  <b>ดาวน์โหลด</b>
+                </button>
+                <button class="pdf-modal-close" type="button" data-admin-pdf-close aria-label="ปิดหน้าต่างพรีวิว">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+            </div>
+          </header>
+
+          <div class="pdf-viewer-body">
+            <aside class="pdf-sidebar" data-admin-pdf-sidebar>
+              <div class="pdf-sidebar-title">ภาพรวมทุกหน้า</div>
+              <div class="pdf-thumbnails-list" data-admin-pdf-thumbnails></div>
+            </aside>
+
+            <main class="pdf-canvas-viewport" data-admin-pdf-viewport>
+              <div class="pdf-viewer-loading" data-admin-pdf-loading>
+                <div class="pdf-loading-spinner"></div>
+                <strong>กำลังเปิดเอกสาร Portfolio...</strong>
+              </div>
+              <div class="pdf-pages-container" data-admin-pdf-pages-container></div>
+            </main>
+
+            <aside class="pdf-details-drawer" data-admin-pdf-details-drawer>
+              <div class="pdf-details-card">
+                <div class="portfolio-detail-badge">
+                  <span>PORTFOLIO</span>
+                </div>
+
+                <h2 class="portfolio-detail-name" data-admin-detail-owner>ชื่อเจ้าของผลงาน</h2>
+
+                <div class="portfolio-detail-uni-box">
+                  <div class="uni-box-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 3 2 10h20Z"/></svg>
+                    <span>มหาวิทยาลัย</span>
+                  </div>
+                  <div class="uni-box-value" data-admin-detail-uni>มหาวิทยาลัย</div>
+                </div>
+
+                <div class="portfolio-detail-section" data-admin-detail-faculty-sec>
+                  <div class="section-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    <span>คณะ / สาขา</span>
+                  </div>
+                  <div class="section-value" data-admin-detail-faculty>คณะ</div>
+                  <div class="section-subvalue" data-admin-detail-major>สาขาวิชา</div>
+                </div>
+
+                <div class="portfolio-detail-section" data-admin-detail-student-sec>
+                  <div class="section-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+                    <span>ข้อมูลผู้เรียน</span>
+                  </div>
+                  <div class="section-value" data-admin-detail-student>ข้อมูลผู้เรียน / โรงเรียน</div>
+                </div>
+
+                <div class="portfolio-detail-section" data-admin-detail-contact-sec>
+                  <div class="section-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                    <span>ช่องทางติดต่อ</span>
+                  </div>
+                  <div class="section-value" data-admin-detail-contact>ช่องทางติดต่อ</div>
+                </div>
+
+                <div class="portfolio-detail-divider" data-admin-detail-divider></div>
+
+                <div class="portfolio-detail-section" data-admin-detail-advice-sec>
+                  <div class="section-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <span>คำแนะนำ / ข้อคิด</span>
+                  </div>
+                  <div class="section-advice" data-admin-detail-advice>คำแนะนำและข้อคิด</div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="icons.js"></script>
+    <script type="module" src="firebase-session.js"></script>
+    <script type="module" src="admin.js?v=8"></script>
+  </body>
+</html>

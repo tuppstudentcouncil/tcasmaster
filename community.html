@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ชุมชนพอร์ต | TCAS Master</title>
+    <link rel="icon" type="image/png" href="tcasmasterlogo.png" />
+    <link rel="preload" as="image" href="tcasmasterlogo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-session.css" />
+    <link rel="stylesheet" href="community.css" />
+  </head>
+  <body class="community-page">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html#top" aria-label="TCAS Master หน้าหลัก">
+          <img class="brand-logo" src="tcasmasterlogo.png" alt="TCAS Master" width="160" height="44" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="brand-fallback" style="display:none;align-items:center;gap:8px;">
+            <span class="brand-mark"><span class="mini-penguin">🐧</span></span>
+            <span class="brand-copy"><strong>TCAS MASTER</strong><small>FUTURE PLANNING</small></span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav">
+          <a class="nav-link" href="index.html#top">⌂ หน้าหลัก</a>
+          <a class="nav-link" href="analyze.html">วิเคราะห์ <span>⌄</span></a>
+          <a class="nav-link" href="mock-exam.html">เตรียมสอบ <span>⌄</span></a>
+          <a class="nav-link" href="activities.html">กิจกรรม <span>⌄</span></a>
+          <a class="nav-link active" href="community.html">ชุมชน <span>⌄</span></a>
+        </nav>
+        <div class="nav-actions">
+          <button class="language-btn" type="button">文 TH</button>
+          <a class="login-btn" href="login.html">♙ เข้าสู่ระบบ</a>
+        </div>
+        <a class="admin-access-link" href="admin.html" aria-label="เข้าสู่ระบบแอดมิน">⚙</a>
+      </div>
+    </header>
+
+    <main class="community-main">
+      <div class="community-shell">
+        <section class="share-banner">
+          <div>
+            <h1>อยากแชร์พอร์ตของคุณ?</h1>
+            <p>เลือกสายที่ตรงตัวคุณ เลือกหน้าที่จะแสดง แล้วเผยแพร่ได้เลย</p>
+          </div>
+          <div class="share-actions">
+            <button class="my-portfolio" type="button" data-my-portfolio>พอร์ตของฉัน</button>
+            <button class="upload-portfolio" type="button" data-upload-portfolio>อัปโหลดพอร์ต</button>
+            <input class="hidden-input" type="file" accept=".pdf,image/*" data-portfolio-file />
+          </div>
+        </section>
+
+        <section class="portfolio-filters" aria-label="ตัวกรองพอร์ต">
+          <strong>ตัวกรอง</strong>
+          <select data-filter-university>
+            <option value="all">ทุกมหาวิทยาลัย</option>
+            <option value="มหาวิทยาลัยเกษตรศาสตร์">มหาวิทยาลัยเกษตรศาสตร์</option>
+            <option value="จุฬาลงกรณ์มหาวิทยาลัย">จุฬาลงกรณ์มหาวิทยาลัย</option>
+            <option value="มหาวิทยาลัยธรรมศาสตร์">มหาวิทยาลัยธรรมศาสตร์</option>
+            <option value="มหาวิทยาลัยมหิดล">มหาวิทยาลัยมหิดล</option>
+          </select>
+          <select data-filter-faculty>
+            <option value="all">ทุกคณะ</option>
+            <option value="คณะวิศวกรรมศาสตร์">คณะวิศวกรรมศาสตร์</option>
+            <option value="คณะแพทยศาสตร์">คณะแพทยศาสตร์</option>
+            <option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>
+            <option value="คณะอักษรศาสตร์">คณะอักษรศาสตร์</option>
+            <option value="คณะบริหารธุรกิจ">คณะบริหารธุรกิจ</option>
+            <option value="คณะสถาปัตยกรรมศาสตร์">คณะสถาปัตยกรรมศาสตร์</option>
+          </select>
+          <select data-filter-major>
+            <option value="all">ทุกสาขาวิชา</option>
+          </select>
+          <select data-filter-school>
+            <option value="all">ทุกโรงเรียน</option>
+            <option value="เตรียมอุดมศึกษา">เตรียมอุดมศึกษา</option>
+            <option value="สวนกุหลาบวิทยาลัย">สวนกุหลาบวิทยาลัย</option>
+            <option value="สาธิตมหาวิทยาลัย">สาธิตมหาวิทยาลัย</option>
+          </select>
+        </section>
+
+        <section class="community-list">
+          <div class="community-heading">
+            <div>
+              <h2>พอร์ตจากชุมชน</h2>
+              <p>พอร์ตสะสมผลงานในระบบ</p>
+            </div>
+            <span data-portfolio-count>0 โพสต์</span>
+          </div>
+          <div class="portfolio-community-grid" data-portfolio-list></div>
+          <div class="portfolio-empty" data-portfolio-empty hidden>
+            <span>🐧</span>
+            <strong>ยังไม่พบพอร์ตที่ตรงกับตัวกรอง</strong>
+            <p>ลองเปลี่ยนมหาวิทยาลัย คณะ สาขาวิชา หรือโรงเรียน</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="pdf-modal-backdrop" data-pdf-preview-modal aria-hidden="true">
+      <div class="pdf-modal-shell" role="dialog" aria-modal="true" aria-labelledby="pdf-modal-title">
+        <header class="pdf-modal-header">
+          <div class="pdf-modal-info">
+            <div class="pdf-modal-badge"><span class="pdf-badge-icon">🐧</span> <span>TCAS PORTFOLIO VIEWER</span></div>
+            <h2 id="pdf-modal-title" data-pdf-modal-title>Portfolio</h2>
+            <div class="pdf-modal-meta-row">
+              <span class="pdf-modal-tag" data-pdf-modal-uni>มหาวิทยาลัย</span>
+              <span class="pdf-modal-tag" data-pdf-modal-faculty>คณะ</span>
+              <span class="pdf-modal-tag" data-pdf-modal-major>สาขาวิชา</span>
+              <span class="pdf-modal-tag" data-pdf-modal-school>โรงเรียน</span>
+              <span class="pdf-modal-owner" data-pdf-modal-owner>◉ เจ้าของ: -</span>
+            </div>
+          </div>
+
+          <div class="pdf-modal-toolbar">
+            <button class="pdf-tool-btn" type="button" data-pdf-thumb-toggle title="เปิด/ปิดแถบตัวอย่างหน้า (Thumbnails)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/></svg>
+              <b>แถบหน้า</b>
+            </button>
+
+            <div class="pdf-tool-group">
+              <button class="pdf-tool-btn pdf-btn-icon" type="button" data-pdf-prev title="หน้าก่อนหน้า (←)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <div class="pdf-page-indicator">
+                <input class="pdf-page-input" type="number" data-pdf-page-input min="1" value="1" aria-label="เลขหน้า">
+                <span>/</span>
+                <span data-pdf-page-count>1</span>
+              </div>
+              <button class="pdf-tool-btn pdf-btn-icon" type="button" data-pdf-next title="หน้าถัดไป (→)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+
+            <div class="pdf-tool-group">
+              <button class="pdf-tool-btn pdf-btn-icon" type="button" data-pdf-zoom-out title="ซูมออก (-)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+              </button>
+              <span class="pdf-zoom-label" data-pdf-zoom-label>115%</span>
+              <button class="pdf-tool-btn pdf-btn-icon" type="button" data-pdf-zoom-in title="ซูมเข้า (+)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+              <button class="pdf-tool-btn pdf-btn-icon" type="button" data-pdf-rotate title="หมุนหน้าเอกสาร 90°">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.83 6.72 2.24L21 8"/><path d="M21 3v5h-5"/></svg>
+              </button>
+              <button class="pdf-tool-btn" type="button" data-pdf-scroll-mode title="สลับโหมดเปิดทีละหน้า / เลื่อนอ่านต่อเนื่อง">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 7l-5-5-5 5M17 17l-5 5-5-5"/></svg>
+                <b>โหมดเลื่อน</b>
+              </button>
+            </div>
+
+            <div class="pdf-tool-group">
+              <button class="pdf-tool-btn" type="button" data-pdf-details-toggle title="เปิด/ปิดข้อมูลผลงานและคำแนะนำ">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                <b>ข้อมูลผลงาน</b>
+              </button>
+              <button class="pdf-tool-btn pdf-btn-icon" type="button" data-pdf-fullscreen title="เปิดเต็มจอ">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+              </button>
+              <button class="pdf-tool-btn pdf-tool-download" type="button" data-pdf-download-btn title="ดาวน์โหลดไฟล์ PDF ต้นฉบับ">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                <b>ดาวน์โหลด</b>
+              </button>
+              <button class="pdf-modal-close" type="button" data-close-pdf-modal aria-label="ปิดหน้าต่างพรีวิว">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <div class="pdf-viewer-body">
+          <aside class="pdf-sidebar" data-pdf-sidebar>
+            <div class="pdf-sidebar-title">ภาพรวมทุกหน้า</div>
+            <div class="pdf-thumbnails-list" data-pdf-thumbnails></div>
+          </aside>
+
+          <main class="pdf-canvas-viewport" data-pdf-viewport>
+            <div class="pdf-viewer-loading" data-pdf-loading>
+              <div class="pdf-loading-spinner"></div>
+              <strong>กำลังเปิดเอกสาร Portfolio...</strong>
+            </div>
+            <div class="pdf-pages-container" data-pdf-pages-container></div>
+          </main>
+
+          <aside class="pdf-details-drawer" data-pdf-details-drawer>
+            <div class="pdf-details-card">
+              <div class="portfolio-detail-badge">
+                <span>PORTFOLIO</span>
+              </div>
+
+              <h2 class="portfolio-detail-name" data-detail-owner>ชื่อเจ้าของผลงาน</h2>
+
+              <div class="portfolio-detail-uni-box">
+                <div class="uni-box-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 3 2 10h20Z"/></svg>
+                  <span>มหาวิทยาลัย</span>
+                </div>
+                <div class="uni-box-value" data-detail-uni>มหาวิทยาลัย</div>
+              </div>
+
+              <div class="portfolio-detail-section" data-detail-faculty-sec>
+                <div class="section-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                  <span>คณะ / สาขา</span>
+                </div>
+                <div class="section-value" data-detail-faculty>คณะ</div>
+                <div class="section-subvalue" data-detail-major>สาขาวิชา</div>
+              </div>
+
+              <div class="portfolio-detail-section" data-detail-student-sec>
+                <div class="section-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>
+                  <span>ข้อมูลผู้เรียน</span>
+                </div>
+                <div class="section-value" data-detail-student>ข้อมูลผู้เรียน / โรงเรียน</div>
+              </div>
+
+              <div class="portfolio-detail-section" data-detail-contact-sec>
+                <div class="section-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                  <span>ช่องทางติดต่อ</span>
+                </div>
+                <div class="section-value" data-detail-contact>ช่องทางติดต่อ</div>
+              </div>
+
+              <div class="portfolio-detail-divider" data-detail-divider></div>
+
+              <div class="portfolio-detail-section" data-detail-advice-sec>
+                <div class="section-label">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  <span>คำแนะนำ / ข้อคิด</span>
+                </div>
+                <div class="section-advice" data-detail-advice>คำแนะนำและข้อคิด</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <div class="community-toast" data-community-toast role="status" aria-live="polite"></div>
+
+    <script src="icons.js"></script>
+    <script src="community.js"></script>
+    <script type="module" src="community-permissions.js?v=3"></script>
+    <script type="module" src="community-portfolios.js?v=7"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+.login-success-modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:rgba(11,28,54,.38);backdrop-filter:blur(5px)}
+.login-success-modal[hidden]{display:none}
+.login-success-card{width:min(100%,380px);padding:32px 28px 28px;border:1px solid #d8e8f8;border-radius:22px;background:#fff;box-shadow:0 24px 70px rgba(10,48,92,.24);text-align:center;animation:success-pop .24s ease-out}
+.login-success-icon{width:58px;height:58px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;background:#e6f8ef;color:#159768;font-size:34px;font-weight:900}
+.login-success-card h3{margin:0;color:#102c50;font-size:25px}
+.login-success-avatar{width:62px;height:62px;margin:18px auto 9px;border-radius:50%;object-fit:cover;border:3px solid #d8ecff;background:#f1f7fc}
+.login-success-name{margin:0;color:#1674de;font-size:16px;font-weight:800}
+.login-success-copy{margin:9px 0 20px;color:#6f8097;font-size:13px}
+.login-success-button{width:100%;border:0;border-radius:11px;padding:13px 16px;background:#1674de;color:#fff;font-size:15px;font-weight:800;cursor:pointer}
+.login-success-button:hover{background:#0e5fbd}
+@keyframes success-pop{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="เข้าสู่ระบบ TCAS Master" />
+    <title>เข้าสู่ระบบ | TCAS Master</title>
+    <link rel="icon" type="image/png" href="tcasmasterlogo.png" />
+    <link rel="preload" as="image" href="tcasmasterlogo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-session.css" />
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="login-consent.css" />
+  </head>
+  <body class="login-page">
+    <header class="site-header login-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html" aria-label="TCAS Master หน้าหลัก">
+          <img class="brand-logo" src="tcasmasterlogo.png" alt="TCAS Master" width="160" height="44" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="brand-fallback" style="display:none;align-items:center;gap:8px;">
+            <span class="brand-mark"><span class="mini-penguin">🐧</span></span>
+            <span class="brand-copy"><strong>TCAS MASTER</strong><small>FUTURE PLANNING</small></span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav login-nav" aria-label="เมนูหลัก">
+          <a class="nav-link" href="index.html">⌂ หน้าหลัก</a>
+          <a class="nav-link" href="analyze.html">วิเคราะห์ <span>⌄</span></a>
+          <a class="nav-link" href="mock-exam.html">เตรียมสอบ <span>⌄</span></a>
+          <a class="nav-link" href="activities.html">กิจกรรม <span>⌄</span></a>
+          <a class="nav-link" href="community.html">ชุมชน <span>⌄</span></a>
+        </nav>
+        <div class="nav-actions">
+          <button class="language-btn" type="button">文 TH</button>
+          <a class="login-btn login-active" href="login.html">♙ เข้าสู่ระบบ</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="login-main">
+      <section class="login-intro" aria-labelledby="login-title">
+        <div class="login-icon" aria-hidden="true">
+          <svg viewBox="0 0 64 64" role="presentation">
+            <path d="M8 25 32 12l24 13-24 13L8 25Z" />
+            <path d="M18 31v12c8 7 20 7 28 0V31M56 26v14" />
+            <circle cx="56" cy="43" r="2.5" />
+          </svg>
+          <span class="icon-penguin">🐧</span>
+        </div>
+        <h1 id="login-title">TCAS Master</h1>
+        <p>แพลตฟอร์มวางแผนการศึกษาและพัฒนาตนเอง</p>
+      </section>
+
+      <section class="login-card" aria-labelledby="login-card-title">
+        <h2 id="login-card-title">เข้าสู่ระบบ</h2>
+        <div class="google-login-wrap">
+          <button class="google-fallback" type="button" data-google-fallback>
+            <span class="google-g" aria-hidden="true">G</span>
+            <span>ดำเนินการต่อด้วย Google</span>
+          </button>
+        </div>
+        <p class="auth-message" data-auth-message role="status" aria-live="polite"></p>
+        <div class="login-consent-modal" data-consent-modal hidden role="dialog" aria-modal="true" aria-labelledby="consent-title" aria-describedby="consent-description">
+          <div class="login-consent-card">
+            <div class="login-consent-header">
+              <span class="login-consent-kicker">ก่อนเริ่มใช้งาน</span>
+              <h3 id="consent-title">ยืนยันการยอมรับเงื่อนไขและ PDPA</h3>
+              <p id="consent-description">กรุณายืนยันทั้ง 2 ข้อก่อนเริ่มใช้งาน ระบบจะพาคุณไปที่หน้าโปรไฟล์ทันทีหลังยอมรับ</p>
+            </div>
+            <div class="login-consent-body">
+              <button class="consent-option is-checked" type="button" data-consent-toggle aria-pressed="true">
+                <span class="consent-check" aria-hidden="true">✓</span>
+                <span class="consent-option-copy"><strong>ฉันยอมรับนโยบายความเป็นส่วนตัว (PDPA)</strong><small>อ่านรายละเอียดได้ที่ <a href="privacy.html" data-consent-link target="_blank">นโยบายความเป็นส่วนตัว</a></small></span>
+              </button>
+              <button class="consent-option is-checked" type="button" data-consent-toggle aria-pressed="true">
+                <span class="consent-check" aria-hidden="true">✓</span>
+                <span class="consent-option-copy"><strong>ฉันยอมรับเงื่อนไขการใช้งาน</strong><small>อ่านรายละเอียดได้ที่ <a href="terms.html" data-consent-link target="_blank">Terms of Service</a></small></span>
+              </button>
+              <button class="login-consent-accept" type="button" data-consent-accept>ยอมรับและเริ่มใช้งาน</button>
+            </div>
+          </div>
+        </div>
+        <p class="legal-copy">การเข้าสู่ระบบแสดงว่าคุณยอมรับ<br /><a href="terms.html" target="_blank">เงื่อนไขการใช้งาน</a> &amp; <a href="privacy.html" target="_blank">นโยบายความเป็นส่วนตัว</a></p>
+      </section>
+
+      <section class="login-benefits" aria-label="บริการของ TCAS Master">
+        <a class="benefit-card" href="analyze.html"><span class="benefit-icon target-icon">◎</span><span>วิเคราะห์ Portfolio</span></a>
+        <a class="benefit-card" href="activities.html"><span class="benefit-icon book-icon">▣</span><span>กิจกรรมและคอร์ส</span></a>
+        <a class="benefit-card" href="community.html"><span class="benefit-icon star-icon">✦</span><span>ชุมชนพอร์ต</span></a>
+      </section>
+
+      <section class="token-note" aria-label="สถานะการเชื่อมต่อ Firebase">
+        <span class="token-dot"></span>
+        <span data-token-status>Firebase Authentication พร้อมเชื่อมต่อ</span>
+      </section>
+    </main>
+
+    <footer class="login-footer">
+      <span>© 2026 TCAS Master</span>
+    </footer>
+
+    <script src="icons.js"></script>
+    <script type="module" src="firebase-auth.js"></script>
+  </body>
+</html>

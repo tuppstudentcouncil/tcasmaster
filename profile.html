@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="โปรไฟล์ผู้ใช้งาน TCAS Master - แพลตฟอร์มวางแผนเข้ามหาวิทยาลัย" />
+    <title>ข้อมูลโปรไฟล์ | TCAS Master</title>
+    <link rel="icon" type="image/png" href="tcasmasterlogo.png" />
+    <link rel="preload" as="image" href="tcasmasterlogo.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-session.css" />
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body class="profile-page">
+    <header class="site-header">
+      <div class="nav-shell">
+        <a class="brand" href="index.html#top" aria-label="TCAS Master หน้าหลัก">
+          <img class="brand-logo" src="tcasmasterlogo.png" alt="TCAS Master" width="160" height="44" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="brand-fallback" style="display:none;align-items:center;gap:8px;">
+            <span class="brand-mark"><span class="mini-penguin">🐧</span></span>
+            <span class="brand-copy"><strong>TCAS MASTER</strong><small>FUTURE PLANNING</small></span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="เปิดเมนู" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="main-nav" aria-label="เมนูหลัก">
+          <a class="nav-link" href="index.html#top">⌂ หน้าหลัก</a>
+          <a class="nav-link" href="analyze.html">วิเคราะห์ <span>⌄</span></a>
+          <a class="nav-link" href="mock-exam.html">เตรียมสอบ <span>⌄</span></a>
+          <a class="nav-link" href="activities.html">กิจกรรม <span>⌄</span></a>
+          <a class="nav-link" href="community.html">ชุมชน <span>⌄</span></a>
+        </nav>
+        <div class="nav-actions">
+          <button class="language-btn" type="button">文 TH</button>
+          <a class="login-btn" href="login.html" data-auth-button>เข้าสู่ระบบ</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="profile-main">
+      <div class="profile-shell">
+        <!-- Breadcrumb Navigation with SVG Home Icon -->
+        <nav class="profile-breadcrumb" aria-label="เส้นทางหน้าเว็บ">
+          <a href="index.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span>หน้าหลัก</span>
+          </a>
+          <span class="breadcrumb-separator">›</span>
+          <span class="breadcrumb-current">โปรไฟล์</span>
+        </nav>
+
+        <div class="profile-layout">
+          <!-- Left Sidebar Menu (Pure SVG Icons, NO Emojis) -->
+          <aside class="profile-sidebar-card" aria-label="เมนูโปรไฟล์">
+            <div class="sidebar-heading">โปรไฟล์</div>
+
+            <!-- Item 1: ข้อมูลโปรไฟล์ (Active by default) -->
+            <button class="profile-nav-item active" type="button" data-profile-tab="profile-info">
+              <span class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </span>
+              <span class="nav-label">ข้อมูลโปรไฟล์</span>
+              <span class="active-dot"></span>
+            </button>
+
+            <!-- Item 2: พอร์ตโฟลิโอ -->
+            <button class="profile-nav-item" type="button" data-profile-tab="portfolio">
+              <span class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </span>
+              <span class="nav-label">พอร์ตโฟลิโอ</span>
+              <span class="active-dot"></span>
+            </button>
+
+            <!-- Item 3: คณะในฝัน -->
+            <button class="profile-nav-item" type="button" data-profile-tab="dream-faculty">
+              <span class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+              </span>
+              <span class="nav-label">คณะในฝัน</span>
+              <span class="active-dot"></span>
+            </button>
+
+            <!-- Item 4: คำนวณ GPAX -->
+            <button class="profile-nav-item" type="button" data-profile-tab="gpax-calc">
+              <span class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="2" width="16" height="20" rx="2"/>
+                  <line x1="8" y1="6" x2="16" y2="6"/>
+                  <line x1="16" y1="14" x2="16" y2="18"/>
+                  <path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/>
+                </svg>
+              </span>
+              <span class="nav-label">คำนวณ GPAX</span>
+              <span class="active-dot"></span>
+            </button>
+
+            <!-- Item 5: รายการสิ่งที่ต้องทำ -->
+            <button class="profile-nav-item" type="button" data-profile-tab="todo-list">
+              <span class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 11 12 14 22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+              </span>
+              <span class="nav-label">รายการสิ่งที่ต้องทำ</span>
+              <span class="active-dot"></span>
+            </button>
+          </aside>
+
+          <!-- Right Content Area -->
+          <div class="profile-content-area">
+            <!-- Profile Hero Header Card with Cover & Overlapping Avatar -->
+            <section class="profile-hero-card" aria-label="ข้อมูลส่วนหัวโปรไฟล์">
+              <div class="profile-cover-banner">
+                <!-- Custom Illustrated Vector Banner (TCAS Master Blue Theme) -->
+                <svg class="cover-illustration-svg" viewBox="0 0 1000 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="tcasSkyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0b192c" />
+                      <stop offset="35%" stop-color="#1e3a8a" />
+                      <stop offset="70%" stop-color="#0284c7" />
+                      <stop offset="100%" stop-color="#38bdf8" />
+                    </linearGradient>
+                    <linearGradient id="tcasBuildingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#0369a1" stop-opacity="0.6" />
+                      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+                    </linearGradient>
+                  </defs>
+                  <!-- Background Sky -->
+                  <rect width="1000" height="300" fill="url(#tcasSkyGrad)" />
+                  <!-- City Skyline Silhouette -->
+                  <path d="M 0 300 L 0 160 L 50 160 L 50 190 L 100 190 L 100 130 L 140 130 L 140 170 L 200 170 L 200 110 L 260 110 L 260 210 L 320 210 L 320 140 L 380 140 L 380 180 L 440 180 L 440 120 L 500 120 L 500 200 L 580 200 L 580 100 L 640 100 L 640 190 L 720 190 L 720 130 L 800 130 L 800 170 L 880 170 L 880 120 L 940 120 L 940 180 L 1000 180 L 1000 300 Z" fill="url(#tcasBuildingGrad)" />
+                  <!-- Futuristic Floating Star Lights -->
+                  <circle cx="120" cy="70" r="3" fill="#bae6fd" opacity="0.8" />
+                  <circle cx="280" cy="50" r="4" fill="#e0f2fe" opacity="0.9" />
+                  <circle cx="450" cy="65" r="2.5" fill="#bae6fd" opacity="0.7" />
+                  <circle cx="680" cy="45" r="3.5" fill="#f0f9ff" opacity="0.85" />
+                  <circle cx="850" cy="60" r="2" fill="#bae6fd" opacity="0.6" />
+                </svg>
+
+                <div class="cover-banner-overlay"></div>
+                <div class="cover-banner-content">
+                  <h1 class="cover-banner-title">ครบ จบ ทุกรอบ TCAS</h1>
+                </div>
+              </div>
+
+              <!-- Profile Info Bar -->
+              <div class="profile-info-bar">
+                <div class="profile-avatar-and-names">
+                  <div class="profile-avatar-outer">
+                    <!-- Photo fallback or user image -->
+                    <img id="userAvatarImg" class="profile-avatar-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80" alt="รูปโปรไฟล์นักเรียน" onerror="this.style.display='none'; document.getElementById('userAvatarFallback').style.display='grid';" />
+                    <div id="userAvatarFallback" class="profile-avatar-fallback" style="display:none;">จ</div>
+                  </div>
+                  <div class="profile-text-details">
+                    <h2 class="profile-full-name" id="userDisplayName">เจตต์นิภัทร์ เบ็ญจมิตรกุล</h2>
+                    <span class="profile-username" id="userUsername">@success04813</span>
+                    <span class="profile-email-row">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                      </svg>
+                      <span id="userEmail">success04813@gmail.com</span>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Action Buttons with pure SVG icons (TCAS Blue Theme) -->
+                <div class="profile-actions-row">
+                  <button class="btn-profile-secondary" type="button" id="btnAddSchool">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 21h18M5 21V7l8-4 6 4v14M13 3v4M8 10v3M8 17v3M16 10v3M16 17v3"/>
+                    </svg>
+                    <span>เพิ่มโรงเรียน</span>
+                  </button>
+                  <button class="btn-profile-primary" type="button" id="btnEditProfile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                    </svg>
+                    <span>แก้ไขข้อมูล</span>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <!-- ==========================================================
+                 TAB 1: ข้อมูลโปรไฟล์ (Profile Information)
+                 ========================================================== -->
+            <section class="profile-tab-pane active" id="pane-profile-info">
+              <div class="tab-pane-header">
+                <div>
+                  <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    ข้อมูลส่วนตัวและการศึกษา
+                  </h2>
+                  <p>จัดการข้อมูลส่วนบุคคล แผนการเรียน และเป้าหมายคณะเพื่อใช้ในการประเมิน TCAS</p>
+                </div>
+              </div>
+
+              <form id="profileForm" class="profile-form-grid">
+                <div class="form-group">
+                  <label for="formFullName">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    ชื่อ - นามสกุล
+                  </label>
+                  <input type="text" id="formFullName" class="form-control" value="เจตต์นิภัทร์ เบ็ญจมิตรกุล" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="formNickname">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+                    ชื่อเล่น
+                  </label>
+                  <input type="text" id="formNickname" class="form-control" value="เจตต์" placeholder="เช่น น้องเจตต์" />
+                </div>
+
+                <div class="form-group">
+                  <label for="formSchool">
+                    <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 6 4v14M13 3v4"/></svg>
+                    โรงเรียน / สถาบันการศึกษา
+                  </label>
+                  <input type="text" id="formSchool" class="form-control" value="" placeholder="ระบุชื่อโรงเรียนของคุณ" />
+                </div>
+
+                <div class="form-group">
+                  <label for="formGrade">
+                    <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    ระดับชั้น
+                  </label>
+                  <select id="formGrade" class="form-control">
+                    <option value="ม.6" selected>มัธยมศึกษาปีที่ 6 (TCAS69)</option>
+                    <option value="ม.5">มัธยมศึกษาปีที่ 5 (TCAS70)</option>
+                    <option value="ม.4">มัธยมศึกษาปีที่ 4 (TCAS71)</option>
+                    <option value="ม.3">มัธยมศึกษาปีที่ 3</option>
+                    <option value="ปวช.">สายอาชีวะ / ปวช.</option>
+                    <option value="เด็กซิ่ว">เด็กซิ่ว / สำเร็จการศึกษาแล้ว</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="formTrack">
+                    <svg viewBox="0 0 24 24"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
+                    แผนการเรียน
+                  </label>
+                  <select id="formTrack" class="form-control">
+                    <option value="วิทย์-คณิต" selected>วิทยาศาสตร์ - คณิตศาสตร์</option>
+                    <option value="ศิลป์-คำนวณ">ศิลป์ - คำนวณ (คณิต-อังกฤษ)</option>
+                    <option value="ศิลป์-ภาษา">ศิลป์ - ภาษาต่างประเทศ</option>
+                    <option value="ศิลป์-สังคม">ศิลป์ - สังคม / ทั่วไป</option>
+                    <option value="อื่นๆ">โปรแกรมพิเศษ / อื่นๆ</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="formPhone">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    เบอร์โทรศัพท์ติดต่อ
+                  </label>
+                  <input type="tel" id="formPhone" class="form-control" value="" placeholder="08x-xxx-xxxx" />
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="formBio">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    คำแนะนำตัวสั้น ๆ (Bio / สไตล์การเรียน)
+                  </label>
+                  <textarea id="formBio" class="form-control" rows="3" placeholder="เขียนแนะนำตัวเอง สไตล์ความถนัด หรือกิจกรรมเด่น..."></textarea>
+                </div>
+
+                <div class="form-actions-bar full-width">
+                  <button type="submit" class="btn-profile-primary" id="btnSaveProfile">
+                    <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    <span>บันทึกการเปลี่ยนแปลง</span>
+                  </button>
+                </div>
+              </form>
+            </section>
+
+            <!-- ==========================================================
+                 TAB 2: พอร์ตโฟลิโอ (Portfolios)
+                 ========================================================== -->
+            <section class="profile-tab-pane" id="pane-portfolio">
+              <div class="tab-pane-header">
+                <div>
+                  <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                    แฟ้มสะสมผลงาน (My Portfolios)
+                  </h2>
+                  <p>จัดการไฟล์ผลงาน Portfolio PDF สำหรับยื่นสมัคร TCAS รอบที่ 1</p>
+                </div>
+                <button class="btn-profile-primary" type="button" onclick="window.location.href='community.html';">
+                  <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <span>เพิ่มพอร์ตใหม่</span>
+                </button>
+              </div>
+              <div id="userPortfolioList" class="profile-form-grid">
+                <div class="form-group full-width">
+                  <div style="background:#f8fafc; border:1px dashed #cbd5e1; border-radius:18px; padding:36px; text-align:center;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.8" style="margin-bottom:10px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <h3 style="margin:0 0 6px; font-size:16px; color:#0f172a;">พอร์ตโฟลิโอของคุณถูกซิงค์กับระบบ TCAS Master</h3>
+                    <p style="margin:0 0 16px; font-size:12.5px; color:#64748b;">สามารถเปิดวิเคราะห์ AI ตรวจคำผิด ตรวจโครงสร้าง 10 หน้า และแชร์ลงสู่ชุมชนได้</p>
+                    <button class="btn-profile-secondary" type="button" onclick="window.location.href='analyze.html';">
+                      <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      <span>ไปยังหน้า AI วิเคราะห์พอร์ต</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- ==========================================================
+                 TAB 3: คณะในฝัน (Dream Faculties - User Customizable)
+                 ========================================================== -->
+            <section class="profile-tab-pane" id="pane-dream-faculty">
+              <div class="tab-pane-header">
+                <div>
+                  <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                    คณะในฝันและเป้าหมาย TCAS
+                  </h2>
+                  <p>กรอกและจัดการคณะ/มหาวิทยาลัยเป้าหมายของคุณ พร้อมเกณฑ์ GPAX และรอบรับ</p>
+                </div>
+                <button class="btn-profile-primary" type="button" id="btnToggleAddDreamFaculty">
+                  <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  <span>เพิ่มคณะในฝัน</span>
+                </button>
+              </div>
+
+              <!-- Collapsible Add Dream Faculty Form -->
+              <div class="dream-faculty-form-card" id="addDreamFacultyFormCard" hidden>
+                <h3>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  กรอกข้อมูลคณะและมหาวิทยาลัยในฝัน
+                </h3>
+                <form id="dreamFacultyForm" class="profile-form-grid">
+                  <div class="form-group">
+                    <label for="dreamFacultyInput">ชื่อคณะ / สาขาวิชา</label>
+                    <input type="text" id="dreamFacultyInput" class="form-control" placeholder="เช่น คณะแพทยศาสตร์, วิศวกรรมคอมพิวเตอร์" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="dreamUniInput">มหาวิทยาลัย / สถาบัน</label>
+                    <input type="text" id="dreamUniInput" class="form-control" placeholder="เช่น จุฬาลงกรณ์มหาวิทยาลัย, ม.ธรรมศาสตร์" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="dreamRoundInput">รอบ TCAS ที่ต้องการยื่น</label>
+                    <select id="dreamRoundInput" class="form-control">
+                      <option value="รอบที่ 1 Portfolio">รอบที่ 1 Portfolio (แฟ้มสะสมผลงาน)</option>
+                      <option value="รอบที่ 2 Quota">รอบที่ 2 Quota (โควตาพื้นที่/ความสามารถพิเศษ)</option>
+                      <option value="รอบที่ 3 Admission">รอบที่ 3 Admission (กสพท / สอบข้อเขียน)</option>
+                      <option value="รอบที่ 4 Direct Admission">รอบที่ 4 Direct Admission (รับตรงอิสระ)</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="dreamGpaxInput">เกรดเฉลี่ยขั้นต่ำ (GPAX)</label>
+                    <input type="number" step="0.01" min="0" max="4.00" id="dreamGpaxInput" class="form-control" placeholder="เช่น 3.00, 3.50 (ถ้าไม่มีใส่ 0)" />
+                  </div>
+                  <div class="form-actions-bar full-width">
+                    <button type="button" class="btn-profile-secondary" id="btnCancelAddDream">ยกเลิก</button>
+                    <button type="submit" class="btn-profile-primary">
+                      <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/></svg>
+                      <span>บันทึกคณะในฝัน</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Dream Faculties Grid Container -->
+              <div class="dream-faculty-grid" id="dreamFacultyList">
+                <!-- Rendered dynamically from localStorage -->
+              </div>
+            </section>
+
+            <!-- ==========================================================
+                 TAB 4: คำนวณ GPAX (GPAX Calculator - Defaults to 0 & Persists)
+                 ========================================================== -->
+            <section class="profile-tab-pane" id="pane-gpax-calc">
+              <div class="tab-pane-header">
+                <div>
+                  <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/>
+                    </svg>
+                    ระบบคำนวณและจำลอง GPAX สะสม
+                  </h2>
+                  <p>กรอกเกรดเฉลี่ยแต่ละภาคเรียนเพื่อคำนวณ GPAX อัตโนมัติ (ระบบจะจดจำค่าที่คุณกรอกไว้ล่าสุด)</p>
+                </div>
+                <button class="btn-profile-secondary" type="button" id="btnResetGpax">
+                  <svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                  <span>รีเซ็ตเป็น 0</span>
+                </button>
+              </div>
+
+              <div class="gpax-calculator-grid">
+                <div class="gpax-sem-card">
+                  <strong>
+                    <svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    ม.4 เทอม 1
+                  </strong>
+                  <input type="number" step="0.01" min="0" max="4.00" class="form-control gpax-input" id="gpaxSem1" placeholder="0.00" />
+                </div>
+                <div class="gpax-sem-card">
+                  <strong>
+                    <svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    ม.4 เทอม 2
+                  </strong>
+                  <input type="number" step="0.01" min="0" max="4.00" class="form-control gpax-input" id="gpaxSem2" placeholder="0.00" />
+                </div>
+                <div class="gpax-sem-card">
+                  <strong>
+                    <svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    ม.5 เทอม 1
+                  </strong>
+                  <input type="number" step="0.01" min="0" max="4.00" class="form-control gpax-input" id="gpaxSem3" placeholder="0.00" />
+                </div>
+                <div class="gpax-sem-card">
+                  <strong>
+                    <svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    ม.5 เทอม 2
+                  </strong>
+                  <input type="number" step="0.01" min="0" max="4.00" class="form-control gpax-input" id="gpaxSem4" placeholder="0.00" />
+                </div>
+                <div class="gpax-sem-card">
+                  <strong>
+                    <svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    ม.6 เทอม 1
+                  </strong>
+                  <input type="number" step="0.01" min="0" max="4.00" class="form-control gpax-input" id="gpaxSem5" placeholder="0.00" />
+                </div>
+                <div class="gpax-sem-card">
+                  <strong>
+                    <svg width="15" height="15" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    ม.6 เทอม 2 (จำลอง)
+                  </strong>
+                  <input type="number" step="0.01" min="0" max="4.00" class="form-control gpax-input" id="gpaxSem6" placeholder="0.00" />
+                </div>
+              </div>
+
+              <div class="gpax-result-box">
+                <div>
+                  <small style="color:#94a3b8; font-weight:700; font-size:12px; text-transform:uppercase;">GPAX สะสมคำนวณอัตโนมัติ</small>
+                  <h3 style="margin:4px 0 0; font-size:18px; color:#ffffff;">เกรดเฉลี่ยสะสมภาคเรียนที่กรอก</h3>
+                </div>
+                <div class="gpax-result-val" id="gpaxCalculatedValue">0.00</div>
+              </div>
+            </section>
+
+            <!-- ==========================================================
+                 TAB 5: รายการสิ่งที่ต้องทำ (To-Do Checklist)
+                 ========================================================== -->
+            <section class="profile-tab-pane" id="pane-todo-list">
+              <div class="tab-pane-header">
+                <div>
+                  <h2>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                    </svg>
+                    รายการสิ่งที่ต้องทำ (TCAS Checklist)
+                  </h2>
+                  <p>เช็กลิสต์เตรียมตัวสอบและเอกสารสำคัญ เพื่อไม่ให้พลาดทุกกำหนดการ TCAS</p>
+                </div>
+              </div>
+
+              <div class="todo-list-wrap">
+                <div class="todo-item" data-todo-id="1">
+                  <div class="todo-checkbox">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <span class="todo-text">ลงทะเบียนระบบ myTCAS (mytcas.com)</span>
+                </div>
+                <div class="todo-item" data-todo-id="2">
+                  <div class="todo-checkbox">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <span class="todo-text">ขอใบรับรองผลการเรียน ปพ.1 (5 ภาคเรียน)</span>
+                </div>
+                <div class="todo-item" data-todo-id="3">
+                  <div class="todo-checkbox">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <span class="todo-text">จัดทำแฟ้มสะสมผลงาน Portfolio 10 หน้า ฉบับสมบูรณ์</span>
+                </div>
+                <div class="todo-item" data-todo-id="4">
+                  <div class="todo-checkbox">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <span class="todo-text">สมัครสอบ TGAT / TPAT 1-5 ตามกำหนดการ ทปอ.</span>
+                </div>
+                <div class="todo-item" data-todo-id="5">
+                  <div class="todo-checkbox">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <span class="todo-text">ฝึกทำข้อสอบเสมือนจริง Mock Exam จับเวลา 90 นาที</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <script src="icons.js"></script>
+    <script src="profile.js"></script>
+    <script type="module" src="firebase-session.js"></script>
+  </body>
+</html>

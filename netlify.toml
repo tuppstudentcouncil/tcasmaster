@@ -1,0 +1,32 @@
+[build]
+  publish = "."
+
+# Protect backend and sensitive environment files
+[[redirects]]
+  from = "/backend/*"
+  to = "/index.html"
+  status = 404
+
+[[redirects]]
+  from = "/.env*"
+  to = "/index.html"
+  status = 404
+
+# Custom headers for caching and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+

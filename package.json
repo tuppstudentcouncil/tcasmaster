@@ -1,0 +1,24 @@
+{
+  "name": "tcas-master",
+  "version": "1.0.0",
+  "description": "TCAS Master - Future Planning Platform",
+  "private": true,
+  "type": "module",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js",
+    "serve": "node backend/server.js",
+    "postinstall": "cd backend && npm install",
+    "set-admin": "node backend/set-admin.js"
+  },
+  "dependencies": {
+    "cloudinary": "^2.10.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "firebase-admin": "^12.7.0",
+    "jose": "^4.15.9",
+    "multer": "^1.4.5-lts.1"
+  }
+}
+
